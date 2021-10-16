@@ -41,5 +41,47 @@ namespace INF164HWAss1
             else
                 this.sleepLevel = sleepLevel;
         }
+
+        public int GameLevel
+        {
+            get { return gameLevel; }
+            set
+            {
+                if (gameLevel < minLevel)
+                    throw new NegativeLevel(gameLevel);
+                else if (gameLevel > maxLevel)
+                    throw new AboveMaxLevel(gameLevel);
+                else
+                    this.gameLevel = value;
+            }
+        }
+
+        public int HungerLevel
+        {
+            get { return hungerLevel; }
+            set
+            {
+                if (hungerLevel < minLevel)
+                    throw new NegativeLevel(hungerLevel);
+                else if (hungerLevel > maxLevel)
+                    throw new AboveMaxLevel(hungerLevel);
+                else
+                    this.hungerLevel = value;
+            }
+        }
+
+        public int SleepLevel
+        {
+            get { return sleepLevel; }
+            set
+            {
+                if (sleepLevel < minLevel)
+                    throw new NegativeLevel(sleepLevel);
+                else if (sleepLevel > maxLevel)
+                    throw new AboveMaxLevel(sleepLevel);
+                else
+                    this.sleepLevel = value;
+            }
+        }
     }
 }
