@@ -83,5 +83,10 @@ namespace INF164HWAss1
                     this.sleepLevel = value;
             }
         }
+
+        public int getHappinessLevel()
+        {
+            return (this.gameLevel + this.hungerLevel + this.sleepLevel) / 3;
+        }
     }
 }
