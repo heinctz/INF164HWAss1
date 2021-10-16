@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExceptionHandling\AboveMaxLevel.cs" />
+    <Compile Include="ExceptionHandling\NegativeLevel.cs" />
     <Compile Include="Fridge.cs" />
     <Compile Include="frmGame.cs">
       <SubType>Form</SubType>
