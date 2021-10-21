@@ -80,13 +80,37 @@ namespace INF164HWAss1
                 else if (sleepLevel > maxLevel)
                     throw new AboveMaxSleepLevel();
                 else
-                    this.sleepLevel = value;
+                    sleepLevel = value;
             }
+        }
+
+        public void decrementGameLevel()
+        {
+            if ((gameLevel - 1) == -1)
+                throw new NegativeGameLevel();
+            else
+                gameLevel--;
+        }
+
+        public void decrementHungerLevel()
+        {
+            if ((hungerLevel - 1) == -1)
+                throw new NegativeHungerLevel();
+            else
+                hungerLevel--;
+        }
+
+        public void decrementSleepLevel()
+        {
+            if ((sleepLevel - 1) == -1)
+                throw new NegativeSleepLevel();
+            else
+                sleepLevel--;
         }
 
         public int getHappinessLevel()
         {
-            return (this.gameLevel + this.hungerLevel + this.sleepLevel) / 3;
+            return (gameLevel + hungerLevel + sleepLevel) / 3;
         }
     }
 }
