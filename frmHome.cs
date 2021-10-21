@@ -22,7 +22,7 @@ namespace INF164HWAss1
             sleepLevel = 100;
 
             gold = 100;
-            tamagotchi = new Tamagotchi(gameLevel, hungerLevel, sleepLevel);
+            tamagotchi = new Tamagotchi();
         }
 
         public int Gold
@@ -63,9 +63,12 @@ namespace INF164HWAss1
                 displayUpdatedLevels();
             }
 
-            catch (NegativeLevel obj)
+            catch (NegativeGameLevel)
             {
-                // when one of the levels is negative do something
+            }
+
+            catch (NegativeHungerLevel)
+            {
             }
         }
 
@@ -78,9 +81,8 @@ namespace INF164HWAss1
                 displayUpdatedLevels();
             }
 
-            catch (NegativeLevel obj)
+            catch (NegativeSleepLevel)
             {
-                // when the sleep level is negative do something
             }
         }
     }

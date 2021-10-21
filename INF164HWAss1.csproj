@@ -46,8 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExceptionHandling\AboveMaxLevel.cs" />
-    <Compile Include="ExceptionHandling\NegativeLevel.cs" />
+    <Compile Include="ExceptionHandling\AboveMaxGameLevel.cs" />
+    <Compile Include="ExceptionHandling\AboveMaxHungerLevel.cs" />
+    <Compile Include="ExceptionHandling\AboveMaxSleepLevel.cs" />
+    <Compile Include="ExceptionHandling\NegativeGameLevel.cs" />
+    <Compile Include="ExceptionHandling\NegativeHungerLevel.cs" />
+    <Compile Include="ExceptionHandling\NegativeSleepLevel.cs" />
     <Compile Include="Fridge.cs" />
     <Compile Include="frmGame.cs">
       <SubType>Form</SubType>
