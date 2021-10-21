@@ -164,7 +164,7 @@ namespace INF164HWAss1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 474);
+            this.ClientSize = new System.Drawing.Size(530, 474);
             this.Controls.Add(this.gbxTop);
             this.Controls.Add(this.gbxBottom);
             this.Name = "frmHome";
