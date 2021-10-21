@@ -6,8 +6,9 @@ namespace INF164HWAss1
 {
     public partial class frmHome : Form
     {
-        private int maxLevel = 0;
-        private int minLevel = 0;
+        private int gameLevel;
+        private int hungerLevel;
+        private int sleepLevel;
 
         private int gold;
         private Tamagotchi tamagotchi;
@@ -16,20 +17,32 @@ namespace INF164HWAss1
         {
             InitializeComponent();
 
-            this.tamagotchi = new Tamagotchi(maxLevel, maxLevel, maxLevel);
-            this.gold = 0;
+            gameLevel = 100;
+            hungerLevel = 100;
+            sleepLevel = 100;
+
+            gold = 100;
+            tamagotchi = new Tamagotchi(gameLevel, hungerLevel, sleepLevel);
         }
 
         public int Gold
         {
-            get { return this.gold; }
-            set { this.gold = value; }
+            get { return gold; }
+            set { gold = value; }
         }
 
         public Tamagotchi HomeTamagotchi
         {
-            get { return this.tamagotchi; }
-            set { this.tamagotchi = value; }
+            get { return tamagotchi; }
+            set { tamagotchi = value; }
+        }
+
+        private void frmHome_Shown(object sender, EventArgs e)
+        {
+            lblGold.Text = $"Gold: {gold}";
+            lblGameLevel.Text = $"Game: {gameLevel}";
+            lblHungerLevel.Text = $"Hunger: {hungerLevel}";
+            lblSleepLevel.Text = $"Sleep: {sleepLevel}";
         }
     }
 }

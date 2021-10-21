@@ -35,10 +35,10 @@ namespace INF164HWAss1
             this.btnSleep = new System.Windows.Forms.Button();
             this.lblGold = new System.Windows.Forms.Label();
             this.gbxTop = new System.Windows.Forms.GroupBox();
-            this.lblGameLevel = new System.Windows.Forms.Label();
-            this.lblHungerLevel = new System.Windows.Forms.Label();
-            this.lblSleepLevel = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lblSleepLevel = new System.Windows.Forms.Label();
+            this.lblHungerLevel = new System.Windows.Forms.Label();
+            this.lblGameLevel = new System.Windows.Forms.Label();
             this.gbxBottom = new System.Windows.Forms.GroupBox();
             this.imlTamagochiState = new System.Windows.Forms.ImageList(this.components);
             this.gbxTop.SuspendLayout();
@@ -79,9 +79,9 @@ namespace INF164HWAss1
             this.lblGold.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGold.Location = new System.Drawing.Point(12, 40);
             this.lblGold.Name = "lblGold";
-            this.lblGold.Size = new System.Drawing.Size(56, 15);
+            this.lblGold.Size = new System.Drawing.Size(42, 15);
             this.lblGold.TabIndex = 3;
-            this.lblGold.Text = "Gold: 0";
+            this.lblGold.Text = "Gold:";
             // 
             // gbxTop
             // 
@@ -98,39 +98,6 @@ namespace INF164HWAss1
             this.gbxTop.TabIndex = 5;
             this.gbxTop.TabStop = false;
             // 
-            // lblGameLevel
-            // 
-            this.lblGameLevel.AutoSize = true;
-            this.lblGameLevel.BackColor = System.Drawing.Color.Lime;
-            this.lblGameLevel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameLevel.Location = new System.Drawing.Point(112, 19);
-            this.lblGameLevel.Name = "lblGameLevel";
-            this.lblGameLevel.Size = new System.Drawing.Size(70, 15);
-            this.lblGameLevel.TabIndex = 4;
-            this.lblGameLevel.Text = "Game: 100";
-            // 
-            // lblHungerLevel
-            // 
-            this.lblHungerLevel.AutoSize = true;
-            this.lblHungerLevel.BackColor = System.Drawing.Color.Lime;
-            this.lblHungerLevel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHungerLevel.Location = new System.Drawing.Point(202, 19);
-            this.lblHungerLevel.Name = "lblHungerLevel";
-            this.lblHungerLevel.Size = new System.Drawing.Size(84, 15);
-            this.lblHungerLevel.TabIndex = 5;
-            this.lblHungerLevel.Text = "Hunger: 100";
-            // 
-            // lblSleepLevel
-            // 
-            this.lblSleepLevel.AutoSize = true;
-            this.lblSleepLevel.BackColor = System.Drawing.Color.Lime;
-            this.lblSleepLevel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSleepLevel.Location = new System.Drawing.Point(305, 19);
-            this.lblSleepLevel.Name = "lblSleepLevel";
-            this.lblSleepLevel.Size = new System.Drawing.Size(77, 15);
-            this.lblSleepLevel.TabIndex = 6;
-            this.lblSleepLevel.Text = "Sleep: 100";
-            // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Tomato;
@@ -141,6 +108,39 @@ namespace INF164HWAss1
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
+            // 
+            // lblSleepLevel
+            // 
+            this.lblSleepLevel.AutoSize = true;
+            this.lblSleepLevel.BackColor = System.Drawing.Color.Lime;
+            this.lblSleepLevel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSleepLevel.Location = new System.Drawing.Point(305, 19);
+            this.lblSleepLevel.Name = "lblSleepLevel";
+            this.lblSleepLevel.Size = new System.Drawing.Size(56, 15);
+            this.lblSleepLevel.TabIndex = 6;
+            this.lblSleepLevel.Text = "Sleep: ";
+            // 
+            // lblHungerLevel
+            // 
+            this.lblHungerLevel.AutoSize = true;
+            this.lblHungerLevel.BackColor = System.Drawing.Color.Lime;
+            this.lblHungerLevel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHungerLevel.Location = new System.Drawing.Point(202, 19);
+            this.lblHungerLevel.Name = "lblHungerLevel";
+            this.lblHungerLevel.Size = new System.Drawing.Size(63, 15);
+            this.lblHungerLevel.TabIndex = 5;
+            this.lblHungerLevel.Text = "Hunger: ";
+            // 
+            // lblGameLevel
+            // 
+            this.lblGameLevel.AutoSize = true;
+            this.lblGameLevel.BackColor = System.Drawing.Color.Lime;
+            this.lblGameLevel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameLevel.Location = new System.Drawing.Point(112, 19);
+            this.lblGameLevel.Name = "lblGameLevel";
+            this.lblGameLevel.Size = new System.Drawing.Size(49, 15);
+            this.lblGameLevel.TabIndex = 4;
+            this.lblGameLevel.Text = "Game: ";
             // 
             // gbxBottom
             // 
@@ -169,6 +169,7 @@ namespace INF164HWAss1
             this.Controls.Add(this.gbxBottom);
             this.Name = "frmHome";
             this.Text = "frmHome";
+            this.Shown += new System.EventHandler(this.frmHome_Shown);
             this.gbxTop.ResumeLayout(false);
             this.gbxTop.PerformLayout();
             this.gbxBottom.ResumeLayout(false);
