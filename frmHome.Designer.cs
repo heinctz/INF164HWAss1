@@ -41,6 +41,8 @@ namespace INF164HWAss1
             this.lblGameLevel = new System.Windows.Forms.Label();
             this.gbxBottom = new System.Windows.Forms.GroupBox();
             this.imlTamagochiState = new System.Windows.Forms.ImageList(this.components);
+            this.tmrUpdateGameAndHunger = new System.Windows.Forms.Timer(this.components);
+            this.tmrUpdateSleep = new System.Windows.Forms.Timer(this.components);
             this.gbxTop.SuspendLayout();
             this.gbxBottom.SuspendLayout();
             this.SuspendLayout();
@@ -160,6 +162,16 @@ namespace INF164HWAss1
             this.imlTamagochiState.ImageSize = new System.Drawing.Size(30, 30);
             this.imlTamagochiState.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // tmrUpdateGameAndHunger
+            // 
+            this.tmrUpdateGameAndHunger.Interval = 10000;
+            this.tmrUpdateGameAndHunger.Tick += new System.EventHandler(this.tmrUpdateGameAndHunger_Tick);
+            // 
+            // tmrUpdateSleep
+            // 
+            this.tmrUpdateSleep.Interval = 20000;
+            this.tmrUpdateSleep.Tick += new System.EventHandler(this.tmrUpdateSleep_Tick);
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,5 +202,7 @@ namespace INF164HWAss1
         private System.Windows.Forms.Label lblGameLevel;
         private System.Windows.Forms.GroupBox gbxBottom;
         private System.Windows.Forms.ImageList imlTamagochiState;
+        private System.Windows.Forms.Timer tmrUpdateGameAndHunger;
+        private System.Windows.Forms.Timer tmrUpdateSleep;
     }
 }
