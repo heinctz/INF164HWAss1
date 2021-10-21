@@ -75,5 +75,15 @@ namespace INF164HWAss1
             {
             }
         }
+
+        private void btnGame_Click(object sender, EventArgs e)
+        {
+            frmGame Gameform = new frmGame(tamagotchi, gold);
+            Hide();
+            Gameform.ShowDialog();
+
+            gold = Gameform.Gold;
+            tamagotchi = Gameform.EditedTamagotchi;
+        }
     }
 }

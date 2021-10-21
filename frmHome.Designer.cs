@@ -55,6 +55,7 @@ namespace INF164HWAss1
             this.btnGame.TabIndex = 0;
             this.btnGame.Text = "Game";
             this.btnGame.UseVisualStyleBackColor = true;
+            this.btnGame.Click += new System.EventHandler(this.btnGame_Click);
             // 
             // btnKitchen
             // 

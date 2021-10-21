@@ -12,9 +12,22 @@ namespace INF164HWAss1
 {
     public partial class frmKitchen : Form
     {
-        public frmKitchen()
+        private int gold;
+        private Tamagotchi tamagotchi;
+
+        public frmKitchen(Tamagotchi tamagotchi, int gold)
         {
             InitializeComponent();
+            this.gold = gold;
+            this.tamagotchi = new Tamagotchi(tamagotchi);
+        }
+        public int Gold
+        {
+            get { return gold; }
+        }
+        public Tamagotchi EditedTamagotchi
+        {
+            get { return tamagotchi; }
         }
     }
 }

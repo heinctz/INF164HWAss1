@@ -38,6 +38,7 @@ namespace INF164HWAss1
             this.ClientSize = new System.Drawing.Size(628, 450);
             this.Name = "frmGame";
             this.Text = "frmGame";
+            this.Shown += new System.EventHandler(this.frmGame_Shown);
             this.ResumeLayout(false);
 
         }
