@@ -42,6 +42,13 @@ namespace INF164HWAss1
                 this.sleepLevel = sleepLevel;
         }
 
+        public Tamagotchi(Tamagotchi tamagotchi)
+        {
+            gameLevel = tamagotchi.GameLevel;
+            hungerLevel = tamagotchi.HungerLevel;
+            sleepLevel = tamagotchi.SleepLevel;
+        }
+
         public int GameLevel
         {
             get { return gameLevel; }
