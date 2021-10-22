@@ -52,7 +52,7 @@
     <Compile Include="ExceptionHandling\NegativeGameLevel.cs" />
     <Compile Include="ExceptionHandling\NegativeHungerLevel.cs" />
     <Compile Include="ExceptionHandling\NegativeSleepLevel.cs" />
-    <Compile Include="Fridge.cs" />
+    <Compile Include="Food.cs" />
     <Compile Include="frmGame.cs">
       <SubType>Form</SubType>
     </Compile>

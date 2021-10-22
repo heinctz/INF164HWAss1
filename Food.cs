@@ -1,7 +1,7 @@
 ﻿namespace INF164HWAss1
 {
     using System.Windows.Forms;
-    public class Fridge
+    public class Food
     {
         private readonly int MIN_CAPACITY = 0;
         private readonly int MAX_CAPACITY = 20;
@@ -10,14 +10,14 @@
         private int NumFood_Items;
         private int Curr_Capacity;
 
-        public Fridge()
+        public Food()
         {
             NumDrinks     = 0;
             NumFood_Items = 0;
             Curr_Capacity = 0;
         }
 
-        public Fridge(int NumDrinks, int NumFood_Items, int Curr_Capacity)
+        public Food(int NumDrinks, int NumFood_Items, int Curr_Capacity)
         {
             // To calculate if the food items plus the drinking items are smaller than the MAX_CAPACITY
             bool bSmallerthan_max = false;
