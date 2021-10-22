@@ -1,105 +1,68 @@
 ﻿namespace INF164HWAss1
 {
     using System.Windows.Forms;
+    using System;
     public class Food
     {
         private readonly int MIN_CAPACITY = 0;
         private readonly int MAX_CAPACITY = 20;
 
-        private int NumDrinks;
-        private int NumFood_Items;
-        private int Curr_Capacity;
+        private int Curr_Capacity =0;
+
+        private string Name;
+        private string Category;
+        private DateTime Purchased;
+        private DateTime Expire;
+        private double Cost;
 
         public Food()
         {
-            NumDrinks     = 0;
-            NumFood_Items = 0;
-            Curr_Capacity = 0;
+            Name      = "";
+            Category  = "";
+            Purchased = new DateTime(2021, 1, 1);
+            Expire    = new DateTime(2021, 12, 31);
+            Cost      = 0.0;
         }
 
-        public Food(int NumDrinks, int NumFood_Items, int Curr_Capacity)
+        public Food(string Name, string Category, DateTime Purchased, DateTime Expire, double Cost)
         {
-            // To calculate if the food items plus the drinking items are smaller than the MAX_CAPACITY
+            // To calculate if the food items are smaller than the MAX_CAPACITY and larger than the MIN_CAPACITY.
             bool bSmallerthan_max = false;
-            if (NumDrinks + NumFood_Items <= MAX_CAPACITY)
+            if (Curr_Capacity + 1 <= MAX_CAPACITY)
                 bSmallerthan_max = true;
 
-            if (NumFood_Items < MIN_CAPACITY)
+            if (Curr_Capacity < MIN_CAPACITY)
                 MessageBox.Show("Number of food items cannot be a negative number");
-            else if (NumFood_Items > MAX_CAPACITY)
+            else if (Curr_Capacity > MAX_CAPACITY)
                 MessageBox.Show("Number of food items cannot be greater than 20");
             else if (bSmallerthan_max)
-                this.NumDrinks = NumDrinks;
+                 Curr_Capacity++;
 
-            if (NumDrinks < MIN_CAPACITY)
-                MessageBox.Show("Number of drinks cannot be a negative number");
-            else if (NumDrinks > MAX_CAPACITY)
-                MessageBox.Show("Number of drinks cannot be greater than 20");
-            else if (bSmallerthan_max)
-                this.NumFood_Items = NumFood_Items;
-
-            if (Curr_Capacity < MIN_CAPACITY)
-                MessageBox.Show("The current capacity cannot be a negative number");
-            else if (NumDrinks > MAX_CAPACITY)
-                MessageBox.Show("The current capacity cannot be greater than 20");
-            else if (bSmallerthan_max)
-                this.Curr_Capacity = Curr_Capacity;
-        }
-
-        public int Drinks
-        { 
-            get {return NumDrinks;}
-            set
-            {
-                bool bSmallerthan_max = false;
-                if (NumDrinks + NumFood_Items <= MAX_CAPACITY)
-                    bSmallerthan_max = true;
-
-                if (NumDrinks < MIN_CAPACITY)
-                    MessageBox.Show("Number of drinks cannot be a negative number");
-                else if (NumDrinks > MAX_CAPACITY)
-                    MessageBox.Show("Number of drinks cannot be greater than 20");
-                else if (bSmallerthan_max)
-                    this.NumDrinks = value;
-            }
-        }
-
-        public int Food_Items
-        {
-            get {return NumFood_Items;}
-            set
-            {
-                bool bSmallerthan_max = false;
-                if (NumDrinks + NumFood_Items <= MAX_CAPACITY)
-                    bSmallerthan_max = true;
-
-                if (NumFood_Items < MIN_CAPACITY)
-                    MessageBox.Show("Number of food items cannot be a negative number");
-                else if (NumFood_Items > MAX_CAPACITY)
-                    MessageBox.Show("Number of food items cannot be greater than 20");
-                else if (bSmallerthan_max)
-                    this.Food_Items = value;
-            }
+            this.Name      = Name;
+            this.Category  = Category;
+            this.Purchased = Purchased;
+            this.Expire    = Expire;
+            this.Cost      = Cost;
         }
 
         public int Current_Items
         {
             get {return Curr_Capacity;}
-            set
-            {
-                bool bSmallerthan_max = false;
-                if (NumDrinks + NumFood_Items <= MAX_CAPACITY)
-                    bSmallerthan_max = true;
-
-                if (Curr_Capacity < MIN_CAPACITY)
-                    MessageBox.Show("The current capacity cannot be a negative number");
-                else if (NumDrinks > MAX_CAPACITY)
-                    MessageBox.Show("The current capacity cannot be greater than 20");
-                else if (bSmallerthan_max)
-                    this.Curr_Capacity = value;
-            }
         }
 
+        public string category
+        {
+            get {return Category;}
+        }
 
+        public DateTime expire
+        {
+            get { return Expire; }
+        }
+
+        public DateTime purchased
+        {
+            get { return Purchased; }
+        }
     }
 }
