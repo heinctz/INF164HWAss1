@@ -77,5 +77,9 @@ namespace INF164HWAss1
             //Link the list to the DataGridView.
             dgvFridge.DataSource = myfoods;
         }
+
+        private void btnEat_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

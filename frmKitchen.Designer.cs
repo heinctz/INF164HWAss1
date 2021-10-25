@@ -174,6 +174,7 @@ namespace INF164HWAss1
             this.btnEat.TabIndex = 3;
             this.btnEat.Text = "EAT!!!";
             this.btnEat.UseVisualStyleBackColor = true;
+            this.btnEat.Click += new System.EventHandler(this.btnEat_Click);
             // 
             // frmKitchen
             // 
