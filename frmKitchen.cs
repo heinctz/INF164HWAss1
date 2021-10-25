@@ -15,12 +15,6 @@ namespace INF164HWAss1
         private int gold;
         private Tamagotchi tamagotchi;
 
-        public frmKitchen()
-        {
-            InitializeComponent();
-            this.gold = 0;
-            this.tamagotchi = new Tamagotchi();
-        }
 
         public frmKitchen(Tamagotchi tamagotchi, int gold)
         {
@@ -80,6 +74,37 @@ namespace INF164HWAss1
 
         private void btnEat_Click(object sender, EventArgs e)
         {
+            int iSelectedIndex = dgvFridge.CurrentCell.RowIndex;
+            int Value1 = 0;
+            switch (dgvFridge[0, iSelectedIndex].Value)
+            {   case "Apple":
+                    Value1 = 5;
+                    break;
+                case "Water":
+                    Value1 = 5;
+                    break;
+                case "Chicken":
+                    Value1 = 10;
+                    break;
+                case "Tea":
+                    Value1 = 10;
+                    break;
+                case "Burger":
+                    Value1 = 15;
+                    break;
+                case "Milk Shake":
+                    Value1 = 15;
+                    break;
+                default:
+                    break;
+            }
+            if ((Value1 < gold) && (tamagotchi.HungerLevel + Value1 < 100) )
+            {
+                tamagotchi.HungerLevel = tamagotchi.HungerLevel + Value1;
+                gold -= Value1;
+            }
+            MessageBox.Show(Convert.ToString(tamagotchi.HungerLevel));
+            MessageBox.Show(Convert.ToString(gold));
         }
     }
 }
