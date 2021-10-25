@@ -19,7 +19,7 @@ namespace INF164HWAss1
         {
             InitializeComponent();
             this.gold = 0;
-            this.tamagotchi = new Tamagotchi(tamagotchi);
+            this.tamagotchi = new Tamagotchi();
         }
 
         public frmKitchen(Tamagotchi tamagotchi, int gold)
@@ -36,7 +36,7 @@ namespace INF164HWAss1
         {
             get { return tamagotchi; }
         }
-        List<Food> myfoods = new List<Food>();
+        BindingList<Food> myfoods = new BindingList<Food>();
         private void frmKitchen_Load(object sender, EventArgs e)
         {
             Food newFood;

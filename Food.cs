@@ -9,19 +9,19 @@
 
         private int Curr_Capacity =0;
 
-        private string Name;
+        private string sName;
         private string Category;
         private DateTime Purchased;
         private DateTime Expire;
-        private double Cost;
+        private double dCost;
 
         public Food()
         {
-            Name      = "";
+            sName = "";
             Category  = "";
             Purchased = new DateTime(2021, 1, 1);
             Expire    = new DateTime(2021, 12, 31);
-            Cost      = 0.0;
+            dCost      = 0.0;
         }
 
         public Food(string Name, string Category, DateTime Purchased, DateTime Expire, double Cost)
@@ -38,14 +38,19 @@
             else if (bSmallerthan_max)
                  Curr_Capacity++;
 
-            this.Name      = Name;
+            this.sName     = Name;
             this.Category  = Category;
             this.Purchased = Purchased;
             this.Expire    = Expire;
-            this.Cost      = Cost;
+            this.dCost      = Cost;
         }
 
-        public int Current_Items
+        public string Name
+        {
+            get { return sName;}
+        }
+
+        private int Current_Items
         {
             get {return Curr_Capacity;}
         }
@@ -63,6 +68,10 @@
         public DateTime purchased
         {
             get { return Purchased; }
+        }
+        public double Cost
+        {
+            get { return dCost;}
         }
     }
 }

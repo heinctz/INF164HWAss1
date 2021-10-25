@@ -41,11 +41,6 @@ namespace INF164HWAss1
             this.btnRemove_Item = new System.Windows.Forms.Button();
             this.btnAdd_Item = new System.Windows.Forms.Button();
             this.dgvFridge = new System.Windows.Forms.DataGridView();
-            this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDatePurchased = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvExpire = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEat = new System.Windows.Forms.Button();
             this.gbxKitchen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFridge)).BeginInit();
@@ -165,41 +160,10 @@ namespace INF164HWAss1
             // dgvFridge
             // 
             this.dgvFridge.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFridge.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvName,
-            this.dgvCategory,
-            this.dgvDatePurchased,
-            this.dgvExpire,
-            this.dgvCost});
             this.dgvFridge.Location = new System.Drawing.Point(44, 48);
             this.dgvFridge.Name = "dgvFridge";
             this.dgvFridge.Size = new System.Drawing.Size(545, 225);
             this.dgvFridge.TabIndex = 1;
-            // 
-            // dgvName
-            // 
-            this.dgvName.HeaderText = "Name";
-            this.dgvName.Name = "dgvName";
-            // 
-            // dgvCategory
-            // 
-            this.dgvCategory.HeaderText = "Category";
-            this.dgvCategory.Name = "dgvCategory";
-            // 
-            // dgvDatePurchased
-            // 
-            this.dgvDatePurchased.HeaderText = "Date Purchased";
-            this.dgvDatePurchased.Name = "dgvDatePurchased";
-            // 
-            // dgvExpire
-            // 
-            this.dgvExpire.HeaderText = "Expire Date";
-            this.dgvExpire.Name = "dgvExpire";
-            // 
-            // dgvCost
-            // 
-            this.dgvCost.HeaderText = "Purchase Cost";
-            this.dgvCost.Name = "dgvCost";
             // 
             // btnEat
             // 
@@ -242,10 +206,5 @@ namespace INF164HWAss1
         private System.Windows.Forms.Button btnRemove_Item;
         private System.Windows.Forms.Button btnAdd_Item;
         private System.Windows.Forms.DataGridView dgvFridge;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvDatePurchased;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvExpire;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCost;
     }
 }
