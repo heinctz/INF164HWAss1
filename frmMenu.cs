@@ -16,5 +16,12 @@ namespace INF164HWAss1
         {
             InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            frmKitchen myform = new frmKitchen();
+            myform.ShowDialog();
+
+        }
     }
 }

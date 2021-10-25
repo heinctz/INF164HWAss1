@@ -15,6 +15,13 @@ namespace INF164HWAss1
         private int gold;
         private Tamagotchi tamagotchi;
 
+        public frmKitchen()
+        {
+            InitializeComponent();
+            this.gold = 0;
+            this.tamagotchi = new Tamagotchi(tamagotchi);
+        }
+
         public frmKitchen(Tamagotchi tamagotchi, int gold)
         {
             InitializeComponent();
