@@ -65,6 +65,7 @@ namespace INF164HWAss1
             this.btnKitchen.TabIndex = 1;
             this.btnKitchen.Text = "Kitchen";
             this.btnKitchen.UseVisualStyleBackColor = true;
+            this.btnKitchen.Click += new System.EventHandler(this.btnKitchen_Click);
             // 
             // btnSleep
             // 

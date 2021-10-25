@@ -85,5 +85,14 @@ namespace INF164HWAss1
             gold = Gameform.Gold;
             tamagotchi = Gameform.EditedTamagotchi;
         }
+
+        private void btnKitchen_Click(object sender, EventArgs e)
+        {
+            frmKitchen myKitchen = new frmKitchen(tamagotchi,gold);
+            Hide();
+            myKitchen.ShowDialog();
+            gold = myKitchen.Gold;
+            tamagotchi = myKitchen.EditedTamagotchi;
+        }
     }
 }
