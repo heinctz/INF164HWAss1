@@ -30,6 +30,7 @@ namespace INF164HWAss1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
             this.btnGame = new System.Windows.Forms.Button();
             this.btnKitchen = new System.Windows.Forms.Button();
             this.btnSleep = new System.Windows.Forms.Button();
@@ -40,15 +41,18 @@ namespace INF164HWAss1
             this.lblHungerLevel = new System.Windows.Forms.Label();
             this.lblGameLevel = new System.Windows.Forms.Label();
             this.gbxBottom = new System.Windows.Forms.GroupBox();
-            this.imlTamagochiState = new System.Windows.Forms.ImageList(this.components);
+            this.imlTamagochiStates = new System.Windows.Forms.ImageList(this.components);
             this.tmrUpdateGame = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdateSleep = new System.Windows.Forms.Timer(this.components);
             this.tmrNegativeGameLevel = new System.Windows.Forms.Timer(this.components);
             this.tmrNegativeHungerLevel = new System.Windows.Forms.Timer(this.components);
             this.tmrNegativeSleepLevel = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdateHunger = new System.Windows.Forms.Timer(this.components);
+            this.tmrUpdateTamagotchiImage = new System.Windows.Forms.Timer(this.components);
+            this.pbxTamagotchiState = new System.Windows.Forms.PictureBox();
             this.gbxTop.SuspendLayout();
             this.gbxBottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxTamagotchiState)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGame
@@ -123,7 +127,7 @@ namespace INF164HWAss1
             this.lblSleepLevel.AutoSize = true;
             this.lblSleepLevel.BackColor = System.Drawing.Color.Lime;
             this.lblSleepLevel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSleepLevel.Location = new System.Drawing.Point(305, 19);
+            this.lblSleepLevel.Location = new System.Drawing.Point(316, 19);
             this.lblSleepLevel.Name = "lblSleepLevel";
             this.lblSleepLevel.Size = new System.Drawing.Size(56, 15);
             this.lblSleepLevel.TabIndex = 6;
@@ -134,7 +138,7 @@ namespace INF164HWAss1
             this.lblHungerLevel.AutoSize = true;
             this.lblHungerLevel.BackColor = System.Drawing.Color.Lime;
             this.lblHungerLevel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHungerLevel.Location = new System.Drawing.Point(202, 19);
+            this.lblHungerLevel.Location = new System.Drawing.Point(209, 19);
             this.lblHungerLevel.Name = "lblHungerLevel";
             this.lblHungerLevel.Size = new System.Drawing.Size(63, 15);
             this.lblHungerLevel.TabIndex = 5;
@@ -163,20 +167,27 @@ namespace INF164HWAss1
             this.gbxBottom.TabIndex = 4;
             this.gbxBottom.TabStop = false;
             // 
-            // imlTamagochiState
+            // imlTamagochiStates
             // 
-            this.imlTamagochiState.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imlTamagochiState.ImageSize = new System.Drawing.Size(30, 30);
-            this.imlTamagochiState.TransparentColor = System.Drawing.Color.Transparent;
+            this.imlTamagochiStates.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlTamagochiStates.ImageStream")));
+            this.imlTamagochiStates.TransparentColor = System.Drawing.Color.Transparent;
+            this.imlTamagochiStates.Images.SetKeyName(0, "state1.png");
+            this.imlTamagochiStates.Images.SetKeyName(1, "state2.png");
+            this.imlTamagochiStates.Images.SetKeyName(2, "state3.png");
+            this.imlTamagochiStates.Images.SetKeyName(3, "state4.png");
+            this.imlTamagochiStates.Images.SetKeyName(4, "state5.png");
+            this.imlTamagochiStates.Images.SetKeyName(5, "state6.png");
+            this.imlTamagochiStates.Images.SetKeyName(6, "state7.png");
+            this.imlTamagochiStates.Images.SetKeyName(7, "state8.png");
             // 
             // tmrUpdateGame
             // 
-            this.tmrUpdateGame.Interval = 5000;
+            this.tmrUpdateGame.Interval = 300;
             this.tmrUpdateGame.Tick += new System.EventHandler(this.tmrUpdateGameAndHunger_Tick);
             // 
             // tmrUpdateSleep
             // 
-            this.tmrUpdateSleep.Interval = 10000;
+            this.tmrUpdateSleep.Interval = 600;
             this.tmrUpdateSleep.Tick += new System.EventHandler(this.tmrUpdateSleep_Tick);
             // 
             // tmrNegativeGameLevel
@@ -196,14 +207,29 @@ namespace INF164HWAss1
             // 
             // tmrUpdateHunger
             // 
-            this.tmrUpdateHunger.Interval = 5000;
+            this.tmrUpdateHunger.Interval = 300;
             this.tmrUpdateHunger.Tick += new System.EventHandler(this.tmrUpdateHunger_Tick);
+            // 
+            // tmrUpdateTamagotchiImage
+            // 
+            this.tmrUpdateTamagotchiImage.Interval = 1;
+            this.tmrUpdateTamagotchiImage.Tick += new System.EventHandler(this.tmrUpdateTamagotchiImage_Tick);
+            // 
+            // pbxTamagotchiState
+            // 
+            this.pbxTamagotchiState.Location = new System.Drawing.Point(143, 132);
+            this.pbxTamagotchiState.Name = "pbxTamagotchiState";
+            this.pbxTamagotchiState.Size = new System.Drawing.Size(200, 200);
+            this.pbxTamagotchiState.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxTamagotchiState.TabIndex = 6;
+            this.pbxTamagotchiState.TabStop = false;
             // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 474);
+            this.Controls.Add(this.pbxTamagotchiState);
             this.Controls.Add(this.gbxTop);
             this.Controls.Add(this.gbxBottom);
             this.Name = "frmHome";
@@ -212,6 +238,7 @@ namespace INF164HWAss1
             this.gbxTop.ResumeLayout(false);
             this.gbxTop.PerformLayout();
             this.gbxBottom.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxTamagotchiState)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,12 +255,14 @@ namespace INF164HWAss1
         private System.Windows.Forms.Label lblHungerLevel;
         private System.Windows.Forms.Label lblGameLevel;
         private System.Windows.Forms.GroupBox gbxBottom;
-        private System.Windows.Forms.ImageList imlTamagochiState;
+        private System.Windows.Forms.ImageList imlTamagochiStates;
         private System.Windows.Forms.Timer tmrUpdateGame;
         private System.Windows.Forms.Timer tmrUpdateSleep;
         private System.Windows.Forms.Timer tmrNegativeGameLevel;
         private System.Windows.Forms.Timer tmrNegativeHungerLevel;
         private System.Windows.Forms.Timer tmrNegativeSleepLevel;
         private System.Windows.Forms.Timer tmrUpdateHunger;
+        private System.Windows.Forms.Timer tmrUpdateTamagotchiImage;
+        private System.Windows.Forms.PictureBox pbxTamagotchiState;
     }
 }

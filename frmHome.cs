@@ -29,6 +29,9 @@ namespace INF164HWAss1
             gameLevelCounter = 0;
             hungerLevelCounter = 0;
             sleepLevelCounter = 0;
+
+            pbxTamagotchiState.Image = imlTamagochiStates.Images[0];
+            tmrUpdateTamagotchiImage.Enabled = true;
         }
 
         public int Gold
@@ -198,5 +201,26 @@ namespace INF164HWAss1
                 lblSleepLevel.Visible = true;
         }
 
+        private void tmrUpdateTamagotchiImage_Tick(object sender, EventArgs e)
+        {
+            int happinessLevel = tamagotchi.getHappinessLevel(); 
+
+            if ((happinessLevel >= 90) && (happinessLevel <= 100))
+                pbxTamagotchiState.Image = imlTamagochiStates.Images[0];
+            else if ((happinessLevel >= 80) && (happinessLevel <= 89))
+                pbxTamagotchiState.Image = imlTamagochiStates.Images[1];
+            else if ((happinessLevel >= 70) && (happinessLevel <= 79))
+                pbxTamagotchiState.Image = imlTamagochiStates.Images[2];
+            else if ((happinessLevel >= 60) && (happinessLevel <= 69))
+                pbxTamagotchiState.Image = imlTamagochiStates.Images[3];
+            else if ((happinessLevel >= 50) && (happinessLevel <= 59))
+                pbxTamagotchiState.Image = imlTamagochiStates.Images[4];
+            else if ((happinessLevel >= 40) && (happinessLevel <= 49))
+                pbxTamagotchiState.Image = imlTamagochiStates.Images[5];
+            else if ((happinessLevel >= 25) && (happinessLevel <= 39))
+                pbxTamagotchiState.Image = imlTamagochiStates.Images[6];
+            else
+                pbxTamagotchiState.Image = imlTamagochiStates.Images[7];
+        }
     }
 }
