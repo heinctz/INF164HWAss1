@@ -41,8 +41,12 @@ namespace INF164HWAss1
             this.lblGameLevel = new System.Windows.Forms.Label();
             this.gbxBottom = new System.Windows.Forms.GroupBox();
             this.imlTamagochiState = new System.Windows.Forms.ImageList(this.components);
-            this.tmrUpdateGameAndHunger = new System.Windows.Forms.Timer(this.components);
+            this.tmrUpdateGame = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdateSleep = new System.Windows.Forms.Timer(this.components);
+            this.tmrNegativeGameLevel = new System.Windows.Forms.Timer(this.components);
+            this.tmrNegativeHungerLevel = new System.Windows.Forms.Timer(this.components);
+            this.tmrNegativeSleepLevel = new System.Windows.Forms.Timer(this.components);
+            this.tmrUpdateHunger = new System.Windows.Forms.Timer(this.components);
             this.gbxTop.SuspendLayout();
             this.gbxBottom.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +116,7 @@ namespace INF164HWAss1
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // lblSleepLevel
             // 
@@ -164,15 +169,35 @@ namespace INF164HWAss1
             this.imlTamagochiState.ImageSize = new System.Drawing.Size(30, 30);
             this.imlTamagochiState.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // tmrUpdateGameAndHunger
+            // tmrUpdateGame
             // 
-            this.tmrUpdateGameAndHunger.Interval = 10000;
-            this.tmrUpdateGameAndHunger.Tick += new System.EventHandler(this.tmrUpdateGameAndHunger_Tick);
+            this.tmrUpdateGame.Interval = 5000;
+            this.tmrUpdateGame.Tick += new System.EventHandler(this.tmrUpdateGameAndHunger_Tick);
             // 
             // tmrUpdateSleep
             // 
-            this.tmrUpdateSleep.Interval = 20000;
+            this.tmrUpdateSleep.Interval = 10000;
             this.tmrUpdateSleep.Tick += new System.EventHandler(this.tmrUpdateSleep_Tick);
+            // 
+            // tmrNegativeGameLevel
+            // 
+            this.tmrNegativeGameLevel.Interval = 400;
+            this.tmrNegativeGameLevel.Tick += new System.EventHandler(this.tmrNegativeGameLevel_Tick);
+            // 
+            // tmrNegativeHungerLevel
+            // 
+            this.tmrNegativeHungerLevel.Interval = 400;
+            this.tmrNegativeHungerLevel.Tick += new System.EventHandler(this.tmrNegativeHungerLevel_Tick);
+            // 
+            // tmrNegativeSleepLevel
+            // 
+            this.tmrNegativeSleepLevel.Interval = 400;
+            this.tmrNegativeSleepLevel.Tick += new System.EventHandler(this.tmrNegativeSleepLevel_Tick);
+            // 
+            // tmrUpdateHunger
+            // 
+            this.tmrUpdateHunger.Interval = 5000;
+            this.tmrUpdateHunger.Tick += new System.EventHandler(this.tmrUpdateHunger_Tick);
             // 
             // frmHome
             // 
@@ -182,7 +207,7 @@ namespace INF164HWAss1
             this.Controls.Add(this.gbxTop);
             this.Controls.Add(this.gbxBottom);
             this.Name = "frmHome";
-            this.Text = "frmHome";
+            this.Text = "Tamagotchi Home";
             this.Shown += new System.EventHandler(this.frmHome_Shown);
             this.gbxTop.ResumeLayout(false);
             this.gbxTop.PerformLayout();
@@ -204,7 +229,11 @@ namespace INF164HWAss1
         private System.Windows.Forms.Label lblGameLevel;
         private System.Windows.Forms.GroupBox gbxBottom;
         private System.Windows.Forms.ImageList imlTamagochiState;
-        private System.Windows.Forms.Timer tmrUpdateGameAndHunger;
+        private System.Windows.Forms.Timer tmrUpdateGame;
         private System.Windows.Forms.Timer tmrUpdateSleep;
+        private System.Windows.Forms.Timer tmrNegativeGameLevel;
+        private System.Windows.Forms.Timer tmrNegativeHungerLevel;
+        private System.Windows.Forms.Timer tmrNegativeSleepLevel;
+        private System.Windows.Forms.Timer tmrUpdateHunger;
     }
 }
