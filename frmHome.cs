@@ -160,6 +160,8 @@ namespace INF164HWAss1
 
             gold = Gameform.Gold;
             tamagotchi = Gameform.EditedTamagotchi;
+
+            Show();
         }
 
         private void btnKitchen_Click(object sender, EventArgs e)
@@ -169,6 +171,8 @@ namespace INF164HWAss1
             myKitchen.ShowDialog();
             gold = myKitchen.Gold;
             tamagotchi = myKitchen.EditedTamagotchi;
+
+            Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

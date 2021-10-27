@@ -183,12 +183,12 @@ namespace INF164HWAss1
             // 
             // tmrUpdateGame
             // 
-            this.tmrUpdateGame.Interval = 300;
+            this.tmrUpdateGame.Interval = 5000;
             this.tmrUpdateGame.Tick += new System.EventHandler(this.tmrUpdateGameAndHunger_Tick);
             // 
             // tmrUpdateSleep
             // 
-            this.tmrUpdateSleep.Interval = 600;
+            this.tmrUpdateSleep.Interval = 10000;
             this.tmrUpdateSleep.Tick += new System.EventHandler(this.tmrUpdateSleep_Tick);
             // 
             // tmrNegativeGameLevel
@@ -208,7 +208,7 @@ namespace INF164HWAss1
             // 
             // tmrUpdateHunger
             // 
-            this.tmrUpdateHunger.Interval = 300;
+            this.tmrUpdateHunger.Interval = 5000;
             this.tmrUpdateHunger.Tick += new System.EventHandler(this.tmrUpdateHunger_Tick);
             // 
             // tmrUpdateTamagotchiImage
