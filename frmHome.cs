@@ -55,6 +55,22 @@ namespace INF164HWAss1
             lblSleepLevel.Text = $"Sleep: {tamagotchi.SleepLevel}";
         }
 
+        private void displayUpdatedSleepColor()
+        {
+                if ((tamagotchi.SleepLevel >= 90) && (tamagotchi.SleepLevel <= 100))
+                    lblSleepLevel.BackColor = Color.Lime;
+                else if ((tamagotchi.SleepLevel >= 80) && (tamagotchi.SleepLevel <= 89))
+                    lblSleepLevel.BackColor = Color.LightGreen;
+                else if ((tamagotchi.SleepLevel >= 70) && (tamagotchi.SleepLevel <= 79))
+                    lblSleepLevel.BackColor = Color.Yellow;
+                else if ((tamagotchi.SleepLevel >= 60) && (tamagotchi.SleepLevel <= 69))
+                    lblSleepLevel.BackColor = Color.Orange;
+                else if ((tamagotchi.SleepLevel >= 50) && (tamagotchi.HungerLevel <= 59))
+                    lblSleepLevel.BackColor = Color.OrangeRed;
+                else
+                    lblSleepLevel.BackColor = Color.Red;
+        }
+
         private void frmHome_Shown(object sender, EventArgs e)
         {
             lblGold.Text = $"Gold: {gold}";
@@ -129,19 +145,7 @@ namespace INF164HWAss1
             {
                 tamagotchi.decrementSleepLevel();
                 displayGameLevels();
-
-                if ((tamagotchi.SleepLevel >= 90) && (tamagotchi.SleepLevel <= 100))
-                    lblSleepLevel.BackColor = Color.Lime;
-                else if ((tamagotchi.SleepLevel >= 80) && (tamagotchi.SleepLevel <= 89))
-                    lblSleepLevel.BackColor = Color.LightGreen;
-                else if ((tamagotchi.SleepLevel >= 70) && (tamagotchi.SleepLevel <= 79))
-                    lblSleepLevel.BackColor = Color.Yellow;
-                else if ((tamagotchi.SleepLevel >= 60) && (tamagotchi.SleepLevel <= 69))
-                    lblSleepLevel.BackColor = Color.Orange;
-                else if ((tamagotchi.SleepLevel >= 50) && (tamagotchi.HungerLevel <= 59))
-                    lblSleepLevel.BackColor = Color.OrangeRed;
-                else
-                    lblSleepLevel.BackColor = Color.Red;
+                displayUpdatedSleepColor();
 
                 tmrNegativeSleepLevel.Enabled = false;
             }
@@ -236,6 +240,60 @@ namespace INF164HWAss1
                 tmrGameOver.Enabled = false;
                 MessageBox.Show("Game over: Your tamagotchi has died");
                 Close();
+            }
+        }
+
+        private void btnSleep_Click(object sender, EventArgs e)
+        {
+            tmrUpdateGame.Enabled = false;
+            tmrUpdateHunger.Enabled = false;
+            tmrUpdateSleep.Enabled = false;
+            tmrUpdateTamagotchiImage.Enabled = false;
+            tmrGameOver.Enabled = false;
+
+            pbxTamagotchiState.Image = Image.FromFile(@"..\..\images\sleep.jpg");
+            tmrIncreaseSleep.Enabled = true;
+        }
+
+        private void tmrIncreaseSleep_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                tamagotchi.increaseSleepLevel();
+                displayGameLevels();
+                displayUpdatedSleepColor();
+
+                btnSleep.Text = "Sleeping";
+                btnSleep.Width = 100;
+            }
+
+            catch (AboveMaxSleepLevel)
+            {
+                tmrIncreaseSleep.Enabled = false;
+
+                DialogResult stopSleeping;
+
+                stopSleeping = MessageBox.Show("Tamagotchi sleep Levels are full. Do you want him to stop sleeping?",
+                    "Notification", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (stopSleeping == DialogResult.Yes)
+                {
+                    MessageBox.Show("Tamagotchi is awake!");
+                    btnSleep.Text = "Sleep";
+                    btnSleep.Width = 64;
+
+                    tmrUpdateGame.Enabled = true;
+                    tmrUpdateHunger.Enabled = true;
+                    tmrUpdateSleep.Enabled = true;
+                    tmrUpdateTamagotchiImage.Enabled = true;
+                    tmrGameOver.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Tamagotch is still sleeping!");
+                    btnSleep.Text = "Wake tamagotchi up";
+                    btnSleep.Width = 140;
+                }
             }
         }
     }

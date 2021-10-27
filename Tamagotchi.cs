@@ -115,6 +115,14 @@ namespace INF164HWAss1
                 sleepLevel--;
         }
 
+        public void increaseSleepLevel()
+        {
+            if ((sleepLevel + 1) == 101)
+                throw new AboveMaxSleepLevel();
+            else
+                sleepLevel++;
+        }
+
         public int getHappinessLevel()
         {
             return (gameLevel + hungerLevel + sleepLevel) / 3;

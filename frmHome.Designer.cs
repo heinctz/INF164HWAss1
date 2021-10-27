@@ -51,6 +51,7 @@ namespace INF164HWAss1
             this.tmrUpdateTamagotchiImage = new System.Windows.Forms.Timer(this.components);
             this.pbxTamagotchiState = new System.Windows.Forms.PictureBox();
             this.tmrGameOver = new System.Windows.Forms.Timer(this.components);
+            this.tmrIncreaseSleep = new System.Windows.Forms.Timer(this.components);
             this.gbxTop.SuspendLayout();
             this.gbxBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTamagotchiState)).BeginInit();
@@ -84,6 +85,7 @@ namespace INF164HWAss1
             this.btnSleep.TabIndex = 2;
             this.btnSleep.Text = "Sleep";
             this.btnSleep.UseVisualStyleBackColor = true;
+            this.btnSleep.Click += new System.EventHandler(this.btnSleep_Click);
             // 
             // lblGold
             // 
@@ -183,12 +185,12 @@ namespace INF164HWAss1
             // 
             // tmrUpdateGame
             // 
-            this.tmrUpdateGame.Interval = 5000;
+            this.tmrUpdateGame.Interval = 500;
             this.tmrUpdateGame.Tick += new System.EventHandler(this.tmrUpdateGameAndHunger_Tick);
             // 
             // tmrUpdateSleep
             // 
-            this.tmrUpdateSleep.Interval = 10000;
+            this.tmrUpdateSleep.Interval = 1000;
             this.tmrUpdateSleep.Tick += new System.EventHandler(this.tmrUpdateSleep_Tick);
             // 
             // tmrNegativeGameLevel
@@ -208,7 +210,7 @@ namespace INF164HWAss1
             // 
             // tmrUpdateHunger
             // 
-            this.tmrUpdateHunger.Interval = 5000;
+            this.tmrUpdateHunger.Interval = 500;
             this.tmrUpdateHunger.Tick += new System.EventHandler(this.tmrUpdateHunger_Tick);
             // 
             // tmrUpdateTamagotchiImage
@@ -229,6 +231,11 @@ namespace INF164HWAss1
             // 
             this.tmrGameOver.Interval = 1;
             this.tmrGameOver.Tick += new System.EventHandler(this.tmrGameOver_Tick);
+            // 
+            // tmrIncreaseSleep
+            // 
+            this.tmrIncreaseSleep.Interval = 500;
+            this.tmrIncreaseSleep.Tick += new System.EventHandler(this.tmrIncreaseSleep_Tick);
             // 
             // frmHome
             // 
@@ -271,5 +278,6 @@ namespace INF164HWAss1
         private System.Windows.Forms.Timer tmrUpdateTamagotchiImage;
         private System.Windows.Forms.PictureBox pbxTamagotchiState;
         private System.Windows.Forms.Timer tmrGameOver;
+        private System.Windows.Forms.Timer tmrIncreaseSleep;
     }
 }
