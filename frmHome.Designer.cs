@@ -50,6 +50,7 @@ namespace INF164HWAss1
             this.tmrUpdateHunger = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdateTamagotchiImage = new System.Windows.Forms.Timer(this.components);
             this.pbxTamagotchiState = new System.Windows.Forms.PictureBox();
+            this.tmrGameOver = new System.Windows.Forms.Timer(this.components);
             this.gbxTop.SuspendLayout();
             this.gbxBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTamagotchiState)).BeginInit();
@@ -224,6 +225,11 @@ namespace INF164HWAss1
             this.pbxTamagotchiState.TabIndex = 6;
             this.pbxTamagotchiState.TabStop = false;
             // 
+            // tmrGameOver
+            // 
+            this.tmrGameOver.Interval = 1;
+            this.tmrGameOver.Tick += new System.EventHandler(this.tmrGameOver_Tick);
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,5 +270,6 @@ namespace INF164HWAss1
         private System.Windows.Forms.Timer tmrUpdateHunger;
         private System.Windows.Forms.Timer tmrUpdateTamagotchiImage;
         private System.Windows.Forms.PictureBox pbxTamagotchiState;
+        private System.Windows.Forms.Timer tmrGameOver;
     }
 }

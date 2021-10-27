@@ -32,6 +32,8 @@ namespace INF164HWAss1
 
             pbxTamagotchiState.Image = imlTamagochiStates.Images[0];
             tmrUpdateTamagotchiImage.Enabled = true;
+
+            tmrGameOver.Enabled = true;
         }
 
         public int Gold
@@ -221,6 +223,16 @@ namespace INF164HWAss1
                 pbxTamagotchiState.Image = imlTamagochiStates.Images[6];
             else
                 pbxTamagotchiState.Image = imlTamagochiStates.Images[7];
+        }
+
+        private void tmrGameOver_Tick(object sender, EventArgs e)
+        {
+            if ((tamagotchi.GameLevel == 0) && (tamagotchi.HungerLevel == 0) && (tamagotchi.SleepLevel == 0))
+            {
+                tmrGameOver.Enabled = false;
+                MessageBox.Show("Game over: Your tamagotchi has died");
+                Close();
+            }
         }
     }
 }
