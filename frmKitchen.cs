@@ -113,5 +113,25 @@ namespace INF164HWAss1
 
             dgvFridge.Rows.RemoveAt(iSelectedIndex);
         }
+
+        private void btnCalculateNum_category_Click(object sender, EventArgs e)
+        {
+            int iDrink_Items=0;
+            int iFood_Items =0;
+
+            for (int j = 0; j < dgvFridge.Rows.Count -1; j++)
+            {
+               if (dgvFridge[1,j].Value == "Drink")
+                {
+                    iDrink_Items++;
+                }
+                if (dgvFridge[1, j].Value == "Eat")
+                {
+                    iFood_Items++;
+                }
+            }
+            MessageBox.Show(Convert.ToString("There are " + iDrink_Items + " items to drink in the fridge"));
+            MessageBox.Show(Convert.ToString("There are " + iFood_Items  + " items to eat in the fridge"));
+        }
     }
 }

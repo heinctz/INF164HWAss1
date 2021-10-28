@@ -125,6 +125,7 @@ namespace INF164HWAss1
             this.btnCalculateNum_category.TabIndex = 1;
             this.btnCalculateNum_category.Text = "Calculate Category";
             this.btnCalculateNum_category.UseVisualStyleBackColor = true;
+            this.btnCalculateNum_category.Click += new System.EventHandler(this.btnCalculateNum_category_Click);
             // 
             // btnRemove_Item
             // 
