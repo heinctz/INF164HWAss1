@@ -106,5 +106,12 @@ namespace INF164HWAss1
             MessageBox.Show(Convert.ToString(tamagotchi.HungerLevel));
             MessageBox.Show(Convert.ToString(gold));
         }
+
+        private void btnRemove_Item_Click(object sender, EventArgs e)
+        {
+            int iSelectedIndex = dgvFridge.CurrentCell.RowIndex;
+
+            dgvFridge.Rows.RemoveAt(iSelectedIndex);
+        }
     }
 }

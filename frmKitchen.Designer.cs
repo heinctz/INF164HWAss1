@@ -30,7 +30,6 @@ namespace INF164HWAss1
         private void InitializeComponent()
         {
             this.gbxKitchen = new System.Windows.Forms.GroupBox();
-            this.lblAddItem = new System.Windows.Forms.Label();
             this.lblRemove = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblExpired = new System.Windows.Forms.Label();
@@ -39,7 +38,6 @@ namespace INF164HWAss1
             this.btnExpired = new System.Windows.Forms.Button();
             this.btnCalculateNum_category = new System.Windows.Forms.Button();
             this.btnRemove_Item = new System.Windows.Forms.Button();
-            this.btnAdd_Item = new System.Windows.Forms.Button();
             this.dgvFridge = new System.Windows.Forms.DataGridView();
             this.btnEat = new System.Windows.Forms.Button();
             this.gbxKitchen.SuspendLayout();
@@ -48,7 +46,6 @@ namespace INF164HWAss1
             // 
             // gbxKitchen
             // 
-            this.gbxKitchen.Controls.Add(this.lblAddItem);
             this.gbxKitchen.Controls.Add(this.lblRemove);
             this.gbxKitchen.Controls.Add(this.lblCategory);
             this.gbxKitchen.Controls.Add(this.lblExpired);
@@ -57,7 +54,6 @@ namespace INF164HWAss1
             this.gbxKitchen.Controls.Add(this.btnExpired);
             this.gbxKitchen.Controls.Add(this.btnCalculateNum_category);
             this.gbxKitchen.Controls.Add(this.btnRemove_Item);
-            this.gbxKitchen.Controls.Add(this.btnAdd_Item);
             this.gbxKitchen.Controls.Add(this.dgvFridge);
             this.gbxKitchen.Controls.Add(this.btnEat);
             this.gbxKitchen.Location = new System.Drawing.Point(4, 12);
@@ -67,19 +63,10 @@ namespace INF164HWAss1
             this.gbxKitchen.TabStop = false;
             this.gbxKitchen.Text = "Kitchen";
             // 
-            // lblAddItem
-            // 
-            this.lblAddItem.AutoSize = true;
-            this.lblAddItem.Location = new System.Drawing.Point(11, 289);
-            this.lblAddItem.Name = "lblAddItem";
-            this.lblAddItem.Size = new System.Drawing.Size(108, 13);
-            this.lblAddItem.TabIndex = 10;
-            this.lblAddItem.Text = "Add item to The fride:";
-            // 
             // lblRemove
             // 
             this.lblRemove.AutoSize = true;
-            this.lblRemove.Location = new System.Drawing.Point(11, 319);
+            this.lblRemove.Location = new System.Drawing.Point(11, 295);
             this.lblRemove.Name = "lblRemove";
             this.lblRemove.Size = new System.Drawing.Size(118, 13);
             this.lblRemove.TabIndex = 9;
@@ -88,7 +75,7 @@ namespace INF164HWAss1
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(11, 349);
+            this.lblCategory.Location = new System.Drawing.Point(11, 329);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(186, 13);
             this.lblCategory.TabIndex = 8;
@@ -97,7 +84,7 @@ namespace INF164HWAss1
             // lblExpired
             // 
             this.lblExpired.AutoSize = true;
-            this.lblExpired.Location = new System.Drawing.Point(11, 382);
+            this.lblExpired.Location = new System.Drawing.Point(11, 377);
             this.lblExpired.Name = "lblExpired";
             this.lblExpired.Size = new System.Drawing.Size(240, 13);
             this.lblExpired.TabIndex = 7;
@@ -123,7 +110,7 @@ namespace INF164HWAss1
             // 
             // btnExpired
             // 
-            this.btnExpired.Location = new System.Drawing.Point(264, 377);
+            this.btnExpired.Location = new System.Drawing.Point(264, 372);
             this.btnExpired.Name = "btnExpired";
             this.btnExpired.Size = new System.Drawing.Size(142, 23);
             this.btnExpired.TabIndex = 4;
@@ -132,7 +119,7 @@ namespace INF164HWAss1
             // 
             // btnCalculateNum_category
             // 
-            this.btnCalculateNum_category.Location = new System.Drawing.Point(264, 344);
+            this.btnCalculateNum_category.Location = new System.Drawing.Point(264, 329);
             this.btnCalculateNum_category.Name = "btnCalculateNum_category";
             this.btnCalculateNum_category.Size = new System.Drawing.Size(142, 23);
             this.btnCalculateNum_category.TabIndex = 1;
@@ -141,21 +128,13 @@ namespace INF164HWAss1
             // 
             // btnRemove_Item
             // 
-            this.btnRemove_Item.Location = new System.Drawing.Point(264, 313);
+            this.btnRemove_Item.Location = new System.Drawing.Point(264, 289);
             this.btnRemove_Item.Name = "btnRemove_Item";
             this.btnRemove_Item.Size = new System.Drawing.Size(142, 25);
             this.btnRemove_Item.TabIndex = 1;
             this.btnRemove_Item.Text = "Remove Item";
             this.btnRemove_Item.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd_Item
-            // 
-            this.btnAdd_Item.Location = new System.Drawing.Point(264, 282);
-            this.btnAdd_Item.Name = "btnAdd_Item";
-            this.btnAdd_Item.Size = new System.Drawing.Size(142, 26);
-            this.btnAdd_Item.TabIndex = 2;
-            this.btnAdd_Item.Text = "Add Item";
-            this.btnAdd_Item.UseVisualStyleBackColor = true;
+            this.btnRemove_Item.Click += new System.EventHandler(this.btnRemove_Item_Click);
             // 
             // dgvFridge
             // 
@@ -196,7 +175,6 @@ namespace INF164HWAss1
 
         private System.Windows.Forms.GroupBox gbxKitchen;
         private System.Windows.Forms.Button btnEat;
-        private System.Windows.Forms.Label lblAddItem;
         private System.Windows.Forms.Label lblRemove;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblExpired;
@@ -205,7 +183,6 @@ namespace INF164HWAss1
         private System.Windows.Forms.Button btnExpired;
         private System.Windows.Forms.Button btnCalculateNum_category;
         private System.Windows.Forms.Button btnRemove_Item;
-        private System.Windows.Forms.Button btnAdd_Item;
         private System.Windows.Forms.DataGridView dgvFridge;
     }
 }
