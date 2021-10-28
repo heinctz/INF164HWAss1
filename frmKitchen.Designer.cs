@@ -107,6 +107,7 @@ namespace INF164HWAss1
             this.btnAddCompost.TabIndex = 5;
             this.btnAddCompost.Text = "Add to Compost";
             this.btnAddCompost.UseVisualStyleBackColor = true;
+            this.btnAddCompost.Click += new System.EventHandler(this.btnAddCompost_Click);
             // 
             // btnExpired
             // 
