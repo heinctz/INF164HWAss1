@@ -38,12 +38,14 @@ namespace INF164HWAss1
             this.btnCalculateNum_category = new System.Windows.Forms.Button();
             this.dgvFridge = new System.Windows.Forms.DataGridView();
             this.btnEat = new System.Windows.Forms.Button();
+            this.btnKitchen_Back = new System.Windows.Forms.Button();
             this.gbxKitchen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFridge)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxKitchen
             // 
+            this.gbxKitchen.Controls.Add(this.btnKitchen_Back);
             this.gbxKitchen.Controls.Add(this.lblCategory);
             this.gbxKitchen.Controls.Add(this.lblExpired);
             this.gbxKitchen.Controls.Add(this.lblCompost);
@@ -73,9 +75,9 @@ namespace INF164HWAss1
             this.lblExpired.AutoSize = true;
             this.lblExpired.Location = new System.Drawing.Point(11, 350);
             this.lblExpired.Name = "lblExpired";
-            this.lblExpired.Size = new System.Drawing.Size(240, 13);
+            this.lblExpired.Size = new System.Drawing.Size(207, 13);
             this.lblExpired.TabIndex = 7;
-            this.lblExpired.Text = "Calculate number of items that are almost expired:";
+            this.lblExpired.Text = "Calculate number of items that are expired:";
             // 
             // lblCompost
             // 
@@ -102,8 +104,9 @@ namespace INF164HWAss1
             this.btnExpired.Name = "btnExpired";
             this.btnExpired.Size = new System.Drawing.Size(142, 23);
             this.btnExpired.TabIndex = 4;
-            this.btnExpired.Text = "Calculate Almost Expired";
+            this.btnExpired.Text = "Calculate Expired Items";
             this.btnExpired.UseVisualStyleBackColor = true;
+            this.btnExpired.Click += new System.EventHandler(this.btnExpired_Click);
             // 
             // btnCalculateNum_category
             // 
@@ -134,6 +137,17 @@ namespace INF164HWAss1
             this.btnEat.UseVisualStyleBackColor = true;
             this.btnEat.Click += new System.EventHandler(this.btnEat_Click);
             // 
+            // btnKitchen_Back
+            // 
+            this.btnKitchen_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKitchen_Back.Location = new System.Drawing.Point(604, 383);
+            this.btnKitchen_Back.Name = "btnKitchen_Back";
+            this.btnKitchen_Back.Size = new System.Drawing.Size(94, 34);
+            this.btnKitchen_Back.TabIndex = 1;
+            this.btnKitchen_Back.Text = "BACK";
+            this.btnKitchen_Back.UseVisualStyleBackColor = true;
+            this.btnKitchen_Back.Click += new System.EventHandler(this.btnKitchen_Back_Click);
+            // 
             // frmKitchen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,5 +175,6 @@ namespace INF164HWAss1
         private System.Windows.Forms.Button btnExpired;
         private System.Windows.Forms.Button btnCalculateNum_category;
         private System.Windows.Forms.DataGridView dgvFridge;
+        private System.Windows.Forms.Button btnKitchen_Back;
     }
 }

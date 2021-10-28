@@ -59,7 +59,7 @@ namespace INF164HWAss1
             myfoods.Add(newFood);
             //#5
             newDate_Purchased = new DateTime(2021, 6, 12);
-            newDate_Expired = new DateTime(2021, 10, 12);
+            newDate_Expired = new DateTime(2021, 12, 12);
             newFood = new Food("Tea", "Drink", newDate_Purchased, newDate_Expired, 10.0);
             myfoods.Add(newFood);
             //#6
@@ -103,8 +103,6 @@ namespace INF164HWAss1
                 tamagotchi.HungerLevel = tamagotchi.HungerLevel + Value1;
                 gold -= Value1;
             }
-            MessageBox.Show(Convert.ToString(tamagotchi.HungerLevel));
-            MessageBox.Show(Convert.ToString(gold));
         }
 
 
@@ -156,8 +154,36 @@ namespace INF164HWAss1
                 default:
                     break;
             }
-            gold -= Value1;
+            gold += Value1;
+            MessageBox.Show(Convert.ToString(gold));
             dgvFridge.Rows.RemoveAt(iSelectedIndex);
+        }
+
+        private void btnKitchen_Back_Click(object sender, EventArgs e)
+        {
+            frmHome myHome = new frmHome();
+            myHome.Gold = this.gold;
+            myHome.HomeTamagotchi = this.tamagotchi;
+            Hide();
+            myHome.ShowDialog();
+        }
+
+        private void btnExpired_Click(object sender, EventArgs e)
+        {
+            int iNumber_expired = 0;
+            DateTime dNow;
+            dNow = DateTime.Now;
+
+            for (int j = 0; j < dgvFridge.Rows.Count - 1; j++)
+            {
+                DateTime dExpire = Convert.ToDateTime(dgvFridge[2, j].Value);
+
+                if (dExpire < dNow)
+                {
+                    iNumber_expired++;
+                }
+            }
+            MessageBox.Show("There are " + Convert.ToString(iNumber_expired) + " items expired in the fridge.");
         }
     }
 }
