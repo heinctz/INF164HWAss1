@@ -29,6 +29,7 @@ namespace INF164HWAss1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnA1 = new System.Windows.Forms.Button();
             this.btnA2 = new System.Windows.Forms.Button();
             this.btnA3 = new System.Windows.Forms.Button();
@@ -54,6 +55,10 @@ namespace INF164HWAss1
             this.lblSec = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblTotalgold = new System.Windows.Forms.Label();
+            this.lblGold = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +69,9 @@ namespace INF164HWAss1
             this.btnA1.Size = new System.Drawing.Size(75, 75);
             this.btnA1.TabIndex = 0;
             this.btnA1.UseVisualStyleBackColor = true;
+            this.btnA1.Click += new System.EventHandler(this.button_click);
+            this.btnA1.MouseEnter += new System.EventHandler(this.Button_Enter);
+            this.btnA1.MouseLeave += new System.EventHandler(this.Button_Leave);
             // 
             // btnA2
             // 
@@ -72,6 +80,9 @@ namespace INF164HWAss1
             this.btnA2.Size = new System.Drawing.Size(75, 75);
             this.btnA2.TabIndex = 1;
             this.btnA2.UseVisualStyleBackColor = true;
+            this.btnA2.Click += new System.EventHandler(this.button_click);
+            this.btnA2.MouseEnter += new System.EventHandler(this.Button_Enter);
+            this.btnA2.MouseLeave += new System.EventHandler(this.Button_Leave);
             // 
             // btnA3
             // 
@@ -80,6 +91,9 @@ namespace INF164HWAss1
             this.btnA3.Size = new System.Drawing.Size(75, 75);
             this.btnA3.TabIndex = 2;
             this.btnA3.UseVisualStyleBackColor = true;
+            this.btnA3.Click += new System.EventHandler(this.button_click);
+            this.btnA3.MouseEnter += new System.EventHandler(this.Button_Enter);
+            this.btnA3.MouseLeave += new System.EventHandler(this.Button_Leave);
             // 
             // btnB1
             // 
@@ -88,6 +102,9 @@ namespace INF164HWAss1
             this.btnB1.Size = new System.Drawing.Size(75, 75);
             this.btnB1.TabIndex = 3;
             this.btnB1.UseVisualStyleBackColor = true;
+            this.btnB1.Click += new System.EventHandler(this.button_click);
+            this.btnB1.MouseEnter += new System.EventHandler(this.Button_Enter);
+            this.btnB1.MouseLeave += new System.EventHandler(this.Button_Leave);
             // 
             // btnB2
             // 
@@ -96,6 +113,9 @@ namespace INF164HWAss1
             this.btnB2.Size = new System.Drawing.Size(75, 75);
             this.btnB2.TabIndex = 4;
             this.btnB2.UseVisualStyleBackColor = true;
+            this.btnB2.Click += new System.EventHandler(this.button_click);
+            this.btnB2.MouseEnter += new System.EventHandler(this.Button_Enter);
+            this.btnB2.MouseLeave += new System.EventHandler(this.Button_Leave);
             // 
             // btnB3
             // 
@@ -104,6 +124,9 @@ namespace INF164HWAss1
             this.btnB3.Size = new System.Drawing.Size(75, 75);
             this.btnB3.TabIndex = 5;
             this.btnB3.UseVisualStyleBackColor = true;
+            this.btnB3.Click += new System.EventHandler(this.button_click);
+            this.btnB3.MouseEnter += new System.EventHandler(this.Button_Enter);
+            this.btnB3.MouseLeave += new System.EventHandler(this.Button_Leave);
             // 
             // btnC1
             // 
@@ -112,6 +135,9 @@ namespace INF164HWAss1
             this.btnC1.Size = new System.Drawing.Size(75, 75);
             this.btnC1.TabIndex = 6;
             this.btnC1.UseVisualStyleBackColor = true;
+            this.btnC1.Click += new System.EventHandler(this.button_click);
+            this.btnC1.MouseEnter += new System.EventHandler(this.Button_Enter);
+            this.btnC1.MouseLeave += new System.EventHandler(this.Button_Leave);
             // 
             // btnC2
             // 
@@ -120,6 +146,9 @@ namespace INF164HWAss1
             this.btnC2.Size = new System.Drawing.Size(75, 75);
             this.btnC2.TabIndex = 7;
             this.btnC2.UseVisualStyleBackColor = true;
+            this.btnC2.Click += new System.EventHandler(this.button_click);
+            this.btnC2.MouseEnter += new System.EventHandler(this.Button_Enter);
+            this.btnC2.MouseLeave += new System.EventHandler(this.Button_Leave);
             // 
             // btnC3
             // 
@@ -128,6 +157,9 @@ namespace INF164HWAss1
             this.btnC3.Size = new System.Drawing.Size(75, 75);
             this.btnC3.TabIndex = 8;
             this.btnC3.UseVisualStyleBackColor = true;
+            this.btnC3.Click += new System.EventHandler(this.button_click);
+            this.btnC3.MouseEnter += new System.EventHandler(this.Button_Enter);
+            this.btnC3.MouseLeave += new System.EventHandler(this.Button_Leave);
             // 
             // panel1
             // 
@@ -254,10 +286,11 @@ namespace INF164HWAss1
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newGameToolStripMenuItem});
+            this.newGameToolStripMenuItem,
+            this.backToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(400, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(418, 24);
             this.menuStrip1.TabIndex = 23;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -266,12 +299,44 @@ namespace INF164HWAss1
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
             this.newGameToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.newGameToolStripMenuItem.Text = "New game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
+            // 
+            // gameTimer
+            // 
+            this.gameTimer.Interval = 1000;
+            this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
+            // 
+            // backToolStripMenuItem
+            // 
+            this.backToolStripMenuItem.Name = "backToolStripMenuItem";
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.backToolStripMenuItem.Text = "Back";
+            // 
+            // lblTotalgold
+            // 
+            this.lblTotalgold.AutoSize = true;
+            this.lblTotalgold.Location = new System.Drawing.Point(12, 33);
+            this.lblTotalgold.Name = "lblTotalgold";
+            this.lblTotalgold.Size = new System.Drawing.Size(60, 13);
+            this.lblTotalgold.TabIndex = 24;
+            this.lblTotalgold.Text = "Total gold: ";
+            // 
+            // lblGold
+            // 
+            this.lblGold.AutoSize = true;
+            this.lblGold.Location = new System.Drawing.Point(65, 33);
+            this.lblGold.Name = "lblGold";
+            this.lblGold.Size = new System.Drawing.Size(13, 13);
+            this.lblGold.TabIndex = 25;
+            this.lblGold.Text = "0";
             // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 399);
+            this.ClientSize = new System.Drawing.Size(418, 399);
+            this.Controls.Add(this.lblGold);
+            this.Controls.Add(this.lblTotalgold);
             this.Controls.Add(this.lblSec);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMin);
@@ -334,5 +399,9 @@ namespace INF164HWAss1
         private System.Windows.Forms.Label lblSec;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
+        private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
+        private System.Windows.Forms.Label lblTotalgold;
+        private System.Windows.Forms.Label lblGold;
     }
 }
