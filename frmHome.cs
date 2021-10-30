@@ -166,6 +166,7 @@ namespace INF164HWAss1
             tamagotchi = Gameform.EditedTamagotchi;
 
             Show();
+            lblGold.Text = "Gold: " + gold.ToString();
         }
 
         private void btnKitchen_Click(object sender, EventArgs e)
