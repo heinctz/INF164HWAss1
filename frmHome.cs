@@ -260,7 +260,7 @@ namespace INF164HWAss1
         {
             try
             {
-                tamagotchi.increaseSleepLevel();
+                tamagotchi.incrementSleepLevel();
                 displayGameLevels();
                 displayUpdatedSleepColor();
 

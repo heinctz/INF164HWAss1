@@ -1,4 +1,5 @@
-﻿using INF164HWAss1.ExceptionHandling;
+﻿using System.Windows.Forms;
+using INF164HWAss1.ExceptionHandling;
 
 namespace INF164HWAss1
 {
@@ -115,12 +116,82 @@ namespace INF164HWAss1
                 sleepLevel--;
         }
 
-        public void increaseSleepLevel()
+        public void increaseGameLevel(int value)
+        {
+            if ((gameLevel + value) > 100)
+                throw new AboveMaxGameLevel();
+            else
+                gameLevel += value;
+        }
+
+        public void increaseHungerLevel(int value)
+        {
+            if ((hungerLevel + value) > 100)
+                throw new AboveMaxHungerLevel();
+            else
+                hungerLevel += value;
+        }
+
+        public void incrementSleepLevel()
         {
             if ((sleepLevel + 1) == 101)
                 throw new AboveMaxSleepLevel();
             else
                 sleepLevel++;
+        }
+        public bool canPlayGame()
+        {
+            if (hungerLevel == 0)
+            {
+                MessageBox.Show(@"Tamagotchi can't play he is starving", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (sleepLevel == 0)
+            {
+                MessageBox.Show(@"Tamagotchi can't play he is sleep deprived", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool canEat()
+        {
+            if (gameLevel == 0)
+            {
+                MessageBox.Show(@"Tamagotchi can't eat he needs to play a game", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (sleepLevel == 0)
+            {
+                MessageBox.Show(@"Tamagotchi can't eat he is sleep deprived", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool canSleep()
+        {
+            if (gameLevel == 0)
+            {
+                MessageBox.Show(@"Tamagotchi can't eat he needs to play a game", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (hungerLevel == 0)
+            {
+                MessageBox.Show(@"Tamagotchi can't play he is starving", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+
         }
 
         public int getHappinessLevel()
