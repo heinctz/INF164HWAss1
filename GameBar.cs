@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using System.Drawing;
 using INF164HWAss1.ExceptionHandling;
 
@@ -26,66 +27,99 @@ namespace INF164HWAss1
 
         private void displayGameLevel()
         {
-            lblGameLevel.Text = $"Game: {tamagotchi.GameLevel}";
+            try
+            {
+                if (lblGameLevel.InvokeRequired)
+                {
+                    lblGameLevel.Invoke(new Action(displayGameLevel));
+                    return;
+                }
+
+                lblGameLevel.Text = $"Game: {tamagotchi.GameLevel}";
+
+                if ((tamagotchi.GameLevel >= 90) && (tamagotchi.GameLevel <= 100))
+                    lblGameLevel.BackColor = Color.Lime;
+                else if ((tamagotchi.GameLevel >= 80) && (tamagotchi.GameLevel <= 89))
+                    lblGameLevel.BackColor = Color.LightGreen;
+                else if ((tamagotchi.GameLevel >= 70) && (tamagotchi.GameLevel <= 79))
+                    lblGameLevel.BackColor = Color.Yellow;
+                else if ((tamagotchi.GameLevel >= 60) && (tamagotchi.GameLevel <= 69))
+                    lblGameLevel.BackColor = Color.Orange;
+                else if ((tamagotchi.GameLevel >= 50) && (tamagotchi.GameLevel <= 59))
+                    lblGameLevel.BackColor = Color.OrangeRed;
+                else
+                    lblGameLevel.BackColor = Color.Red;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
         private void displayHungerLevel()
         {
-            lblHungerLevel.Text = $"Hunger: {tamagotchi.HungerLevel}";
+            try
+            {
+                if (lblHungerLevel.InvokeRequired)
+                {
+                    lblHungerLevel.Invoke(new Action(displayHungerLevel));
+                    return;
+                }
+
+                lblHungerLevel.Text = $"Hunger: {tamagotchi.HungerLevel}";
+
+                if ((tamagotchi.HungerLevel >= 90) && (tamagotchi.HungerLevel <= 100))
+                    lblHungerLevel.BackColor = Color.Lime;
+                else if ((tamagotchi.HungerLevel >= 80) && (tamagotchi.HungerLevel <= 89))
+                    lblHungerLevel.BackColor = Color.LightGreen;
+                else if ((tamagotchi.HungerLevel >= 70) && (tamagotchi.HungerLevel <= 79))
+                    lblHungerLevel.BackColor = Color.Yellow;
+                else if ((tamagotchi.HungerLevel >= 60) && (tamagotchi.HungerLevel <= 69))
+                    lblHungerLevel.BackColor = Color.Orange;
+                else if ((tamagotchi.HungerLevel >= 50) && (tamagotchi.HungerLevel <= 59))
+                    lblHungerLevel.BackColor = Color.OrangeRed;
+                else
+                    lblHungerLevel.BackColor = Color.Red;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
         private void displaySleepLevel()
         {
-            lblSleepLevel.Text = $"Sleep: {tamagotchi.SleepLevel}";
+            try
+            {
+                if (lblSleepLevel.InvokeRequired)
+                {
+                    lblSleepLevel.Invoke(new Action(displaySleepLevel));
+                    return;
+                }
+                lblSleepLevel.Text = $"Sleep: {tamagotchi.SleepLevel}";
+
+                if ((tamagotchi.SleepLevel >= 90) && (tamagotchi.SleepLevel <= 100))
+                    lblSleepLevel.BackColor = Color.Lime;
+                else if ((tamagotchi.SleepLevel >= 80) && (tamagotchi.SleepLevel <= 89))
+                    lblSleepLevel.BackColor = Color.LightGreen;
+                else if ((tamagotchi.SleepLevel >= 70) && (tamagotchi.SleepLevel <= 79))
+                    lblSleepLevel.BackColor = Color.Yellow;
+                else if ((tamagotchi.SleepLevel >= 60) && (tamagotchi.SleepLevel <= 69))
+                    lblSleepLevel.BackColor = Color.Orange;
+                else if ((tamagotchi.SleepLevel >= 50) && (tamagotchi.SleepLevel <= 59))
+                    lblSleepLevel.BackColor = Color.OrangeRed;
+                else
+                    lblSleepLevel.BackColor = Color.Red;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
-        private void displayGameLevelColour()
-        {
-            if ((tamagotchi.GameLevel >= 90) && (tamagotchi.GameLevel <= 100))
-                lblGameLevel.BackColor = Color.Lime;
-            else if ((tamagotchi.GameLevel >= 80) && (tamagotchi.GameLevel <= 89))
-                lblGameLevel.BackColor = Color.LightGreen;
-            else if ((tamagotchi.GameLevel >= 70) && (tamagotchi.GameLevel <= 79))
-                lblGameLevel.BackColor = Color.Yellow;
-            else if ((tamagotchi.GameLevel >= 60) && (tamagotchi.GameLevel <= 69))
-                lblGameLevel.BackColor = Color.Orange;
-            else if ((tamagotchi.GameLevel >= 50) && (tamagotchi.GameLevel <= 59))
-                lblGameLevel.BackColor = Color.OrangeRed;
-            else
-                lblGameLevel.BackColor = Color.Red;
-        }
-
-        private void displayHungerLevelColour()
-        {
-            if ((tamagotchi.HungerLevel >= 90) && (tamagotchi.HungerLevel <= 100))
-                lblHungerLevel.BackColor = Color.Lime;
-            else if ((tamagotchi.HungerLevel >= 80) && (tamagotchi.HungerLevel <= 89))
-                lblHungerLevel.BackColor = Color.LightGreen;
-            else if ((tamagotchi.HungerLevel >= 70) && (tamagotchi.HungerLevel <= 79))
-                lblHungerLevel.BackColor = Color.Yellow;
-            else if ((tamagotchi.HungerLevel >= 60) && (tamagotchi.HungerLevel <= 69))
-                lblHungerLevel.BackColor = Color.Orange;
-            else if ((tamagotchi.HungerLevel >= 50) && (tamagotchi.HungerLevel <= 59))
-                lblHungerLevel.BackColor = Color.OrangeRed;
-            else
-                lblHungerLevel.BackColor = Color.Red;
-        }
-
-        private void displaySleepLevelColour()
-        {
-            if ((tamagotchi.SleepLevel >= 90) && (tamagotchi.SleepLevel <= 100))
-                lblSleepLevel.BackColor = Color.Lime;
-            else if ((tamagotchi.SleepLevel >= 80) && (tamagotchi.SleepLevel <= 89))
-                lblSleepLevel.BackColor = Color.LightGreen;
-            else if ((tamagotchi.SleepLevel >= 70) && (tamagotchi.SleepLevel <= 79))
-                lblSleepLevel.BackColor = Color.Yellow;
-            else if ((tamagotchi.SleepLevel >= 60) && (tamagotchi.SleepLevel <= 69))
-                lblSleepLevel.BackColor = Color.Orange;
-            else if ((tamagotchi.SleepLevel >= 50) && (tamagotchi.SleepLevel <= 59))
-                lblSleepLevel.BackColor = Color.OrangeRed;
-            else
-                lblSleepLevel.BackColor = Color.Red;
-        }
 
         private void decrementGameLevel(object source, System.Timers.ElapsedEventArgs e)
         {
@@ -93,7 +127,6 @@ namespace INF164HWAss1
             {
                 tamagotchi.decrementGameLevel();
                 displayGameLevel();
-                displayGameLevelColour();
 
                 tmrFlashGameLevel.Stop();
             }
@@ -110,7 +143,6 @@ namespace INF164HWAss1
             {
                 tamagotchi.decrementHungerLevel();
                 displayHungerLevel();
-                displayHungerLevelColour();
 
                 tmrFlashHungerLevel.Stop();
             }
@@ -127,7 +159,6 @@ namespace INF164HWAss1
             {
                 tamagotchi.decrementSleepLevel();
                 displaySleepLevel();
-                displaySleepLevelColour();
 
                 tmrFlashSleepLevel.Stop();
             }
@@ -138,51 +169,109 @@ namespace INF164HWAss1
             }
         }
 
+        private void changeGameLevelVisibility()
+        {
+            try
+            {
+                if (lblGameLevel.InvokeRequired)
+                {
+                    lblGameLevel.Invoke(new Action(changeGameLevelVisibility));
+                    return;
+                }
+
+                if (gameLevelFlag)
+                {
+                    lblGameLevel.Visible = false;
+                    gameLevelFlag = false;
+                }
+                else
+                {
+                    lblGameLevel.Visible = true;
+                    gameLevelFlag = true;
+                }
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+        private void changeHungerLevelVisibility()
+        {
+            try
+            {
+                if (lblHungerLevel.InvokeRequired)
+                {
+                    lblHungerLevel.Invoke(new Action(changeHungerLevelVisibility));
+                    return;
+                }
+
+                if (hungerLevelFlag)
+                {
+                    lblHungerLevel.Visible = false;
+                    hungerLevelFlag = false;
+                }
+                else
+                {
+                    lblHungerLevel.Visible = true;
+                    hungerLevelFlag = true;
+                }
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void changeSleepLevelVisibility()
+        {
+            try
+            {
+                if (lblSleepLevel.InvokeRequired)
+                {
+                    lblSleepLevel.Invoke(new Action(changeSleepLevelVisibility));
+                    return;
+                }
+
+                if (sleepLevelFlag)
+                {
+                    lblSleepLevel.Visible = false;
+                    sleepLevelFlag = false;
+                }
+                else
+                {
+                    lblSleepLevel.Visible = true;
+                    sleepLevelFlag = true;
+                }
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
         private void flashGameLevel(object source, System.Timers.ElapsedEventArgs e)
         {
-            if (gameLevelFlag)
-            {
-                lblGameLevel.Visible = false;
-                gameLevelFlag = false;
-            }
-            else
-            {
-                lblGameLevel.Visible = true;
-                gameLevelFlag = true;
-            }
+            changeGameLevelVisibility();
         }
 
         private void flashHungerLevel(object source, System.Timers.ElapsedEventArgs e)
         {
-            if (hungerLevelFlag)
-            {
-                lblHungerLevel.Visible = false;
-                hungerLevelFlag = false;
-            }
-            else
-            {
-                lblHungerLevel.Visible = true;
-                hungerLevelFlag = true;
-            }
+            changeHungerLevelVisibility();
         }
 
         private void flashSleepLevel(object source, System.Timers.ElapsedEventArgs e)
         {
-            if (sleepLevelFlag)
-            {
-                lblSleepLevel.Visible = false;
-                sleepLevelFlag = false;
-            }
-            else
-            {
-                lblSleepLevel.Visible = true;
-                sleepLevelFlag = true;
-            }
+            changeSleepLevelVisibility();
         }
 
-        public GameBar(ref Label lblGameLevel, ref Label lblHungerLevel,
+        public GameBar(Tamagotchi tamagotchi, ref Label lblGameLevel, ref Label lblHungerLevel,
             ref Label lblSleepLevel)
         {
+            this.tamagotchi = tamagotchi;
+
             this.lblGameLevel = lblGameLevel;
             this.lblHungerLevel = lblHungerLevel;
             this.lblSleepLevel = lblSleepLevel;
@@ -218,7 +307,6 @@ namespace INF164HWAss1
             {
                 tamagotchi.increaseGameLevel(value);
                 displayGameLevel();
-                displayGameLevelColour();
             }
 
             catch (AboveMaxGameLevel maxGameLevel)
@@ -234,7 +322,6 @@ namespace INF164HWAss1
             {
                 tamagotchi.increaseHungerLevel(value);
                 displayHungerLevel();
-                displayHungerLevelColour();
             }
 
             catch (AboveMaxHungerLevel maxHungerLevel)
@@ -250,7 +337,6 @@ namespace INF164HWAss1
             {
                 tamagotchi.incrementSleepLevel();
                 displaySleepLevel();
-                displaySleepLevelColour();
             }
             
             catch (AboveMaxSleepLevel maxSleep)

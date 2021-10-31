@@ -9,9 +9,12 @@ namespace INF164HWAss1
     {
         private int gold;
         private Tamagotchi tamagotchi;
-        private int gameLevelCounter;
-        private int hungerLevelCounter;
-        private int sleepLevelCounter;
+        private GameBar gameBar;
+
+        private void displayGold()
+        {
+            lblGold.Text = $"Gold: {gold}";
+        }
 
         public frmHome()
         {
@@ -19,21 +22,14 @@ namespace INF164HWAss1
 
             gold = 100;
             tamagotchi = new Tamagotchi();
-
-            displayGameLevels();
-
-            tmrUpdateGame.Enabled = true;
-            tmrUpdateHunger.Enabled = true;
-            tmrUpdateSleep.Enabled = true;
-
-            gameLevelCounter = 0;
-            hungerLevelCounter = 0;
-            sleepLevelCounter = 0;
+            gameBar = new GameBar(tamagotchi, ref lblGameLevel, ref lblHungerLevel,
+                ref lblSleepLevel);
 
             pbxTamagotchiState.Image = imlTamagochiStates.Images[0];
-            tmrUpdateTamagotchiImage.Enabled = true;
+            tmrUpdateTamagotchiImage.Start();
+            tmrGameOver.Start();
 
-            tmrGameOver.Enabled = true;
+            displayGold();
         }
 
         public int Gold
@@ -48,114 +44,6 @@ namespace INF164HWAss1
             set { tamagotchi = value; }
         }
 
-        private void displayGameLevels()
-        {
-            lblGameLevel.Text = $"Game: {tamagotchi.GameLevel}";
-            lblHungerLevel.Text = $"Hunger: {tamagotchi.HungerLevel}";
-            lblSleepLevel.Text = $"Sleep: {tamagotchi.SleepLevel}";
-        }
-
-        private void displayUpdatedSleepColor()
-        {
-                if ((tamagotchi.SleepLevel >= 90) && (tamagotchi.SleepLevel <= 100))
-                    lblSleepLevel.BackColor = Color.Lime;
-                else if ((tamagotchi.SleepLevel >= 80) && (tamagotchi.SleepLevel <= 89))
-                    lblSleepLevel.BackColor = Color.LightGreen;
-                else if ((tamagotchi.SleepLevel >= 70) && (tamagotchi.SleepLevel <= 79))
-                    lblSleepLevel.BackColor = Color.Yellow;
-                else if ((tamagotchi.SleepLevel >= 60) && (tamagotchi.SleepLevel <= 69))
-                    lblSleepLevel.BackColor = Color.Orange;
-                else if ((tamagotchi.SleepLevel >= 50) && (tamagotchi.HungerLevel <= 59))
-                    lblSleepLevel.BackColor = Color.OrangeRed;
-                else
-                    lblSleepLevel.BackColor = Color.Red;
-        }
-
-        private void frmHome_Shown(object sender, EventArgs e)
-        {
-            lblGold.Text = $"Gold: {gold}";
-            displayGameLevels();
-
-            tmrUpdateGame.Enabled = true;
-            tmrUpdateSleep.Enabled = true;
-        }
-
-        private void tmrUpdateGameAndHunger_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                tamagotchi.decrementGameLevel();
-                displayGameLevels();
-
-                if ((tamagotchi.GameLevel >= 90) && (tamagotchi.GameLevel <= 100))
-                    lblGameLevel.BackColor = Color.Lime;
-                else if ((tamagotchi.GameLevel >= 80) && (tamagotchi.GameLevel <= 89))
-                    lblGameLevel.BackColor = Color.LightGreen;
-                else if ((tamagotchi.GameLevel >= 70) && (tamagotchi.GameLevel <= 79))
-                    lblGameLevel.BackColor = Color.Yellow;
-                else if ((tamagotchi.GameLevel >= 60) && (tamagotchi.GameLevel <= 69))
-                    lblGameLevel.BackColor = Color.Orange;
-                else if ((tamagotchi.GameLevel >= 50) && (tamagotchi.GameLevel <= 59))
-                    lblGameLevel.BackColor = Color.OrangeRed;
-                else
-                    lblGameLevel.BackColor = Color.Red;
-
-                tmrNegativeGameLevel.Enabled = false;
-            }
-
-            catch (NegativeGameLevel)
-            {
-                tmrNegativeGameLevel.Enabled = true;
-            }
-
-        }
-
-        private void tmrUpdateHunger_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                tamagotchi.decrementHungerLevel();
-                displayGameLevels();
-
-                if ((tamagotchi.HungerLevel >= 90) && (tamagotchi.HungerLevel <= 100))
-                    lblHungerLevel.BackColor = Color.Lime;
-                else if ((tamagotchi.HungerLevel >= 80) && (tamagotchi.HungerLevel <= 89))
-                    lblHungerLevel.BackColor = Color.LightGreen;
-                else if ((tamagotchi.HungerLevel >= 70) && (tamagotchi.HungerLevel <= 79))
-                    lblHungerLevel.BackColor = Color.Yellow;
-                else if ((tamagotchi.HungerLevel >= 60) && (tamagotchi.HungerLevel <= 69))
-                    lblHungerLevel.BackColor = Color.Orange;
-                else if ((tamagotchi.HungerLevel >= 50) && (tamagotchi.HungerLevel <= 59))
-                    lblHungerLevel.BackColor = Color.OrangeRed;
-                else
-                    lblHungerLevel.BackColor = Color.Red;
-
-                tmrNegativeHungerLevel.Enabled = false;
-            }
-
-            catch (NegativeHungerLevel)
-            {
-                tmrNegativeHungerLevel.Enabled = true;
-            }
-        }
-
-        private void tmrUpdateSleep_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                tamagotchi.decrementSleepLevel();
-                displayGameLevels();
-                displayUpdatedSleepColor();
-
-                tmrNegativeSleepLevel.Enabled = false;
-            }
-
-            catch (NegativeSleepLevel)
-            {
-                tmrNegativeSleepLevel.Enabled = true;
-            }
-        }
-
         private void btnGame_Click(object sender, EventArgs e)
         {
             frmGame Gameform = new frmGame(tamagotchi, gold);
@@ -165,8 +53,8 @@ namespace INF164HWAss1
             gold = Gameform.Gold;
             tamagotchi = Gameform.EditedTamagotchi;
 
+            displayGold();
             Show();
-            lblGold.Text = "Gold: " + gold.ToString();
         }
 
         private void btnKitchen_Click(object sender, EventArgs e)
@@ -177,39 +65,13 @@ namespace INF164HWAss1
             gold = myKitchen.Gold;
             tamagotchi = myKitchen.EditedTamagotchi;
 
+            displayGold();
             Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void tmrNegativeGameLevel_Tick(object sender, EventArgs e)
-        {
-            gameLevelCounter++;
-            if (gameLevelCounter % 2 == 0)
-                lblGameLevel.Visible = false;
-            else
-                lblGameLevel.Visible = true;
-        }
-
-        private void tmrNegativeHungerLevel_Tick(object sender, EventArgs e)
-        {
-            hungerLevelCounter++;
-            if (hungerLevelCounter % 2 == 0)
-                lblHungerLevel.Visible = false;
-            else
-                lblHungerLevel.Visible = true;
-        }
-
-        private void tmrNegativeSleepLevel_Tick(object sender, EventArgs e)
-        {
-            sleepLevelCounter++;
-            if (sleepLevelCounter % 2 == 0)
-                lblSleepLevel.Visible = false;
-            else
-                lblSleepLevel.Visible = true;
         }
 
         private void tmrUpdateTamagotchiImage_Tick(object sender, EventArgs e)
@@ -238,7 +100,7 @@ namespace INF164HWAss1
         {
             if ((tamagotchi.GameLevel == 0) && (tamagotchi.HungerLevel == 0) && (tamagotchi.SleepLevel == 0))
             {
-                tmrGameOver.Enabled = false;
+                tmrGameOver.Start();
                 MessageBox.Show("Game over: Your tamagotchi has died");
                 Close();
             }
@@ -246,32 +108,27 @@ namespace INF164HWAss1
 
         private void btnSleep_Click(object sender, EventArgs e)
         {
-            tmrUpdateGame.Enabled = false;
-            tmrUpdateHunger.Enabled = false;
-            tmrUpdateSleep.Enabled = false;
-            tmrUpdateTamagotchiImage.Enabled = false;
-            tmrGameOver.Enabled = false;
+            gameBar.stopDecrementTimers();
+            tmrUpdateTamagotchiImage.Stop();
+            tmrGameOver.Stop();
 
             pbxTamagotchiState.Image = Image.FromFile(@"..\..\images\sleep.jpg");
-            tmrIncreaseSleep.Enabled = true;
+            tmrIncreaseSleep.Start();
+
+            btnSleep.Text = "Sleeping";
+            btnSleep.Width = 100;
         }
 
         private void tmrIncreaseSleep_Tick(object sender, EventArgs e)
         {
             try
             {
-                tamagotchi.incrementSleepLevel();
-                displayGameLevels();
-                displayUpdatedSleepColor();
-
-                btnSleep.Text = "Sleeping";
-                btnSleep.Width = 100;
+                gameBar.incrementSleepLevel();
             }
 
             catch (AboveMaxSleepLevel)
             {
-                tmrIncreaseSleep.Enabled = false;
-
+                tmrIncreaseSleep.Stop();
                 DialogResult stopSleeping;
 
                 stopSleeping = MessageBox.Show("Tamagotchi sleep Levels are full. Do you want him to stop sleeping?",
@@ -283,11 +140,9 @@ namespace INF164HWAss1
                     btnSleep.Text = "Sleep";
                     btnSleep.Width = 64;
 
-                    tmrUpdateGame.Enabled = true;
-                    tmrUpdateHunger.Enabled = true;
-                    tmrUpdateSleep.Enabled = true;
-                    tmrUpdateTamagotchiImage.Enabled = true;
-                    tmrGameOver.Enabled = true;
+                    gameBar.startDecrementTimers();
+                    tmrUpdateTamagotchiImage.Start();
+                    tmrGameOver.Start();
                 }
                 else
                 {
@@ -297,5 +152,6 @@ namespace INF164HWAss1
                 }
             }
         }
+
     }
 }

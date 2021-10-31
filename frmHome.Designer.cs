@@ -42,12 +42,6 @@ namespace INF164HWAss1
             this.lblGameLevel = new System.Windows.Forms.Label();
             this.gbxBottom = new System.Windows.Forms.GroupBox();
             this.imlTamagochiStates = new System.Windows.Forms.ImageList(this.components);
-            this.tmrUpdateGame = new System.Windows.Forms.Timer(this.components);
-            this.tmrUpdateSleep = new System.Windows.Forms.Timer(this.components);
-            this.tmrNegativeGameLevel = new System.Windows.Forms.Timer(this.components);
-            this.tmrNegativeHungerLevel = new System.Windows.Forms.Timer(this.components);
-            this.tmrNegativeSleepLevel = new System.Windows.Forms.Timer(this.components);
-            this.tmrUpdateHunger = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdateTamagotchiImage = new System.Windows.Forms.Timer(this.components);
             this.pbxTamagotchiState = new System.Windows.Forms.PictureBox();
             this.tmrGameOver = new System.Windows.Forms.Timer(this.components);
@@ -132,9 +126,9 @@ namespace INF164HWAss1
             this.lblSleepLevel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSleepLevel.Location = new System.Drawing.Point(316, 19);
             this.lblSleepLevel.Name = "lblSleepLevel";
-            this.lblSleepLevel.Size = new System.Drawing.Size(56, 15);
+            this.lblSleepLevel.Size = new System.Drawing.Size(77, 15);
             this.lblSleepLevel.TabIndex = 6;
-            this.lblSleepLevel.Text = "Sleep: ";
+            this.lblSleepLevel.Text = "Sleep: 100";
             // 
             // lblHungerLevel
             // 
@@ -143,9 +137,9 @@ namespace INF164HWAss1
             this.lblHungerLevel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHungerLevel.Location = new System.Drawing.Point(209, 19);
             this.lblHungerLevel.Name = "lblHungerLevel";
-            this.lblHungerLevel.Size = new System.Drawing.Size(63, 15);
+            this.lblHungerLevel.Size = new System.Drawing.Size(84, 15);
             this.lblHungerLevel.TabIndex = 5;
-            this.lblHungerLevel.Text = "Hunger: ";
+            this.lblHungerLevel.Text = "Hunger: 100";
             // 
             // lblGameLevel
             // 
@@ -154,9 +148,9 @@ namespace INF164HWAss1
             this.lblGameLevel.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGameLevel.Location = new System.Drawing.Point(112, 19);
             this.lblGameLevel.Name = "lblGameLevel";
-            this.lblGameLevel.Size = new System.Drawing.Size(49, 15);
+            this.lblGameLevel.Size = new System.Drawing.Size(70, 15);
             this.lblGameLevel.TabIndex = 4;
-            this.lblGameLevel.Text = "Game: ";
+            this.lblGameLevel.Text = "Game: 100";
             // 
             // gbxBottom
             // 
@@ -182,36 +176,6 @@ namespace INF164HWAss1
             this.imlTamagochiStates.Images.SetKeyName(5, "state6.png");
             this.imlTamagochiStates.Images.SetKeyName(6, "state7.png");
             this.imlTamagochiStates.Images.SetKeyName(7, "state8.png");
-            // 
-            // tmrUpdateGame
-            // 
-            this.tmrUpdateGame.Interval = 500;
-            this.tmrUpdateGame.Tick += new System.EventHandler(this.tmrUpdateGameAndHunger_Tick);
-            // 
-            // tmrUpdateSleep
-            // 
-            this.tmrUpdateSleep.Interval = 1000;
-            this.tmrUpdateSleep.Tick += new System.EventHandler(this.tmrUpdateSleep_Tick);
-            // 
-            // tmrNegativeGameLevel
-            // 
-            this.tmrNegativeGameLevel.Interval = 400;
-            this.tmrNegativeGameLevel.Tick += new System.EventHandler(this.tmrNegativeGameLevel_Tick);
-            // 
-            // tmrNegativeHungerLevel
-            // 
-            this.tmrNegativeHungerLevel.Interval = 400;
-            this.tmrNegativeHungerLevel.Tick += new System.EventHandler(this.tmrNegativeHungerLevel_Tick);
-            // 
-            // tmrNegativeSleepLevel
-            // 
-            this.tmrNegativeSleepLevel.Interval = 400;
-            this.tmrNegativeSleepLevel.Tick += new System.EventHandler(this.tmrNegativeSleepLevel_Tick);
-            // 
-            // tmrUpdateHunger
-            // 
-            this.tmrUpdateHunger.Interval = 500;
-            this.tmrUpdateHunger.Tick += new System.EventHandler(this.tmrUpdateHunger_Tick);
             // 
             // tmrUpdateTamagotchiImage
             // 
@@ -247,7 +211,6 @@ namespace INF164HWAss1
             this.Controls.Add(this.gbxBottom);
             this.Name = "frmHome";
             this.Text = "Tamagotchi Home";
-            this.Shown += new System.EventHandler(this.frmHome_Shown);
             this.gbxTop.ResumeLayout(false);
             this.gbxTop.PerformLayout();
             this.gbxBottom.ResumeLayout(false);
@@ -269,12 +232,6 @@ namespace INF164HWAss1
         private System.Windows.Forms.Label lblGameLevel;
         private System.Windows.Forms.GroupBox gbxBottom;
         private System.Windows.Forms.ImageList imlTamagochiStates;
-        private System.Windows.Forms.Timer tmrUpdateGame;
-        private System.Windows.Forms.Timer tmrUpdateSleep;
-        private System.Windows.Forms.Timer tmrNegativeGameLevel;
-        private System.Windows.Forms.Timer tmrNegativeHungerLevel;
-        private System.Windows.Forms.Timer tmrNegativeSleepLevel;
-        private System.Windows.Forms.Timer tmrUpdateHunger;
         private System.Windows.Forms.Timer tmrUpdateTamagotchiImage;
         private System.Windows.Forms.PictureBox pbxTamagotchiState;
         private System.Windows.Forms.Timer tmrGameOver;
