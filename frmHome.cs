@@ -61,18 +61,25 @@ namespace INF164HWAss1
             tmrUpdateTamagotchiImage.Start();
             tmrGameOver.Start();
 
+            gameBar.displayGameBar();
             displayGold();
             Show();
         }
 
         private void btnKitchen_Click(object sender, EventArgs e)
         {
-            frmKitchen myKitchen = new frmKitchen(tamagotchi,gold);
             Hide();
+            gameBar.stopDecrementTimers();
+            tmrUpdateTamagotchiImage.Stop();
+            tmrGameOver.Stop();
+
+            frmKitchen myKitchen = new frmKitchen(tamagotchi,gold);
             myKitchen.ShowDialog();
+
             gold = myKitchen.Gold;
             tamagotchi = myKitchen.EditedTamagotchi;
 
+            gameBar.displayGameBar();
             displayGold();
             Show();
         }

@@ -276,9 +276,11 @@ namespace INF164HWAss1
             this.lblHungerLevel = lblHungerLevel;
             this.lblSleepLevel = lblSleepLevel;
 
-            tmrDecrementGameLevel = new System.Timers.Timer(500);
-            tmrDecrementHungerLevel = new System.Timers.Timer(500);
-            tmrDecrementSleepLevel = new System.Timers.Timer(500);
+            displayGameBar();
+
+            tmrDecrementGameLevel = new System.Timers.Timer(5000);
+            tmrDecrementHungerLevel = new System.Timers.Timer(5000);
+            tmrDecrementSleepLevel = new System.Timers.Timer(10000);
 
             tmrFlashGameLevel = new System.Timers.Timer(400);
             tmrFlashHungerLevel = new System.Timers.Timer(400);
@@ -299,6 +301,13 @@ namespace INF164HWAss1
             gameLevelFlag = true;
             hungerLevelFlag = true;
             sleepLevelFlag = true;
+        }
+
+        public void displayGameBar()
+        {
+            displayGameLevel();
+            displayHungerLevel();
+            displaySleepLevel();
         }
 
         public void increaseGameLevel(int value)
