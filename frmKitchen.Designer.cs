@@ -30,6 +30,7 @@ namespace INF164HWAss1
         private void InitializeComponent()
         {
             this.gbxKitchen = new System.Windows.Forms.GroupBox();
+            this.btnKitchen_Back = new System.Windows.Forms.Button();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblExpired = new System.Windows.Forms.Label();
             this.lblCompost = new System.Windows.Forms.Label();
@@ -38,7 +39,9 @@ namespace INF164HWAss1
             this.btnCalculateNum_category = new System.Windows.Forms.Button();
             this.dgvFridge = new System.Windows.Forms.DataGridView();
             this.btnEat = new System.Windows.Forms.Button();
-            this.btnKitchen_Back = new System.Windows.Forms.Button();
+            this.lblSleepLevel = new System.Windows.Forms.Label();
+            this.lblHungerLevel = new System.Windows.Forms.Label();
+            this.lblGameLevel = new System.Windows.Forms.Label();
             this.gbxKitchen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFridge)).BeginInit();
             this.SuspendLayout();
@@ -54,12 +57,23 @@ namespace INF164HWAss1
             this.gbxKitchen.Controls.Add(this.btnCalculateNum_category);
             this.gbxKitchen.Controls.Add(this.dgvFridge);
             this.gbxKitchen.Controls.Add(this.btnEat);
-            this.gbxKitchen.Location = new System.Drawing.Point(4, 12);
+            this.gbxKitchen.Location = new System.Drawing.Point(12, 47);
             this.gbxKitchen.Name = "gbxKitchen";
             this.gbxKitchen.Size = new System.Drawing.Size(732, 437);
             this.gbxKitchen.TabIndex = 0;
             this.gbxKitchen.TabStop = false;
             this.gbxKitchen.Text = "Kitchen";
+            // 
+            // btnKitchen_Back
+            // 
+            this.btnKitchen_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKitchen_Back.Location = new System.Drawing.Point(604, 383);
+            this.btnKitchen_Back.Name = "btnKitchen_Back";
+            this.btnKitchen_Back.Size = new System.Drawing.Size(94, 34);
+            this.btnKitchen_Back.TabIndex = 1;
+            this.btnKitchen_Back.Text = "BACK";
+            this.btnKitchen_Back.UseVisualStyleBackColor = true;
+            this.btnKitchen_Back.Click += new System.EventHandler(this.btnKitchen_Back_Click);
             // 
             // lblCategory
             // 
@@ -137,22 +151,47 @@ namespace INF164HWAss1
             this.btnEat.UseVisualStyleBackColor = true;
             this.btnEat.Click += new System.EventHandler(this.btnEat_Click);
             // 
-            // btnKitchen_Back
+            // lblSleepLevel
             // 
-            this.btnKitchen_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKitchen_Back.Location = new System.Drawing.Point(604, 383);
-            this.btnKitchen_Back.Name = "btnKitchen_Back";
-            this.btnKitchen_Back.Size = new System.Drawing.Size(94, 34);
-            this.btnKitchen_Back.TabIndex = 1;
-            this.btnKitchen_Back.Text = "BACK";
-            this.btnKitchen_Back.UseVisualStyleBackColor = true;
-            this.btnKitchen_Back.Click += new System.EventHandler(this.btnKitchen_Back_Click);
+            this.lblSleepLevel.AutoSize = true;
+            this.lblSleepLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblSleepLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSleepLevel.Location = new System.Drawing.Point(408, 19);
+            this.lblSleepLevel.Name = "lblSleepLevel";
+            this.lblSleepLevel.Size = new System.Drawing.Size(37, 13);
+            this.lblSleepLevel.TabIndex = 9;
+            this.lblSleepLevel.Text = "Sleep:";
+            // 
+            // lblHungerLevel
+            // 
+            this.lblHungerLevel.AutoSize = true;
+            this.lblHungerLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblHungerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHungerLevel.Location = new System.Drawing.Point(301, 19);
+            this.lblHungerLevel.Name = "lblHungerLevel";
+            this.lblHungerLevel.Size = new System.Drawing.Size(45, 13);
+            this.lblHungerLevel.TabIndex = 8;
+            this.lblHungerLevel.Text = "Hunger:";
+            // 
+            // lblGameLevel
+            // 
+            this.lblGameLevel.AutoSize = true;
+            this.lblGameLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblGameLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameLevel.Location = new System.Drawing.Point(204, 19);
+            this.lblGameLevel.Name = "lblGameLevel";
+            this.lblGameLevel.Size = new System.Drawing.Size(38, 13);
+            this.lblGameLevel.TabIndex = 7;
+            this.lblGameLevel.Text = "Game:";
             // 
             // frmKitchen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 452);
+            this.ClientSize = new System.Drawing.Size(800, 496);
+            this.Controls.Add(this.lblSleepLevel);
+            this.Controls.Add(this.lblHungerLevel);
+            this.Controls.Add(this.lblGameLevel);
             this.Controls.Add(this.gbxKitchen);
             this.Name = "frmKitchen";
             this.Text = "frmKitchen";
@@ -161,6 +200,7 @@ namespace INF164HWAss1
             this.gbxKitchen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFridge)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -176,5 +216,8 @@ namespace INF164HWAss1
         private System.Windows.Forms.Button btnCalculateNum_category;
         private System.Windows.Forms.DataGridView dgvFridge;
         private System.Windows.Forms.Button btnKitchen_Back;
+        private System.Windows.Forms.Label lblSleepLevel;
+        private System.Windows.Forms.Label lblHungerLevel;
+        private System.Windows.Forms.Label lblGameLevel;
     }
 }

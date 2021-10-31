@@ -57,13 +57,13 @@ namespace INF164HWAss1
             gold = Gameform.Gold;
             tamagotchi = Gameform.EditedTamagotchi;
 
-            gameBar.startDecrementTimers();
-            tmrUpdateTamagotchiImage.Start();
-            tmrGameOver.Start();
-
             gameBar.displayGameBar();
             displayGold();
             Show();
+
+            gameBar.startDecrementTimers();
+            tmrUpdateTamagotchiImage.Start();
+            tmrGameOver.Start();
         }
 
         private void btnKitchen_Click(object sender, EventArgs e)
@@ -73,15 +73,19 @@ namespace INF164HWAss1
             tmrUpdateTamagotchiImage.Stop();
             tmrGameOver.Stop();
 
-            frmKitchen myKitchen = new frmKitchen(tamagotchi,gold);
-            myKitchen.ShowDialog();
+            frmKitchen kitchenForm = new frmKitchen(tamagotchi,gold);
+            kitchenForm.ShowDialog();
 
-            gold = myKitchen.Gold;
-            tamagotchi = myKitchen.EditedTamagotchi;
+            gold = kitchenForm.Gold;
+            tamagotchi = kitchenForm.EditedTamagotchi;
 
             gameBar.displayGameBar();
             displayGold();
             Show();
+
+            gameBar.startDecrementTimers();
+            tmrUpdateTamagotchiImage.Start();
+            tmrGameOver.Start();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

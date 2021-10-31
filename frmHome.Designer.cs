@@ -198,7 +198,7 @@ namespace INF164HWAss1
             // 
             // tmrIncreaseSleep
             // 
-            this.tmrIncreaseSleep.Interval = 2000;
+            this.tmrIncreaseSleep.Interval = 1000;
             this.tmrIncreaseSleep.Tick += new System.EventHandler(this.tmrIncreaseSleep_Tick);
             // 
             // frmHome

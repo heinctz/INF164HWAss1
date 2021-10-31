@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace INF164HWAss1
@@ -14,18 +8,21 @@ namespace INF164HWAss1
     {
         private int gold;
         private Tamagotchi tamagotchi;
-
+        private GameBar gameBar;
 
         public frmKitchen(Tamagotchi tamagotchi, int gold)
         {
             InitializeComponent();
             this.gold = gold;
-            this.tamagotchi = new Tamagotchi(tamagotchi);
+            this.tamagotchi = tamagotchi;
+            gameBar = new GameBar(ref tamagotchi, ref lblGameLevel, ref lblHungerLevel,
+                ref lblSleepLevel);
         }
         public int Gold
         {
             get { return gold; }
         }
+
         public Tamagotchi EditedTamagotchi
         {
             get { return tamagotchi; }
@@ -161,11 +158,8 @@ namespace INF164HWAss1
 
         private void btnKitchen_Back_Click(object sender, EventArgs e)
         {
-            frmHome myHome = new frmHome();
-            myHome.Gold = this.gold;
-            myHome.HomeTamagotchi = this.tamagotchi;
-            Hide();
-            myHome.ShowDialog();
+            gameBar.stopDecrementTimers();
+            Close();
         }
 
         private void btnExpired_Click(object sender, EventArgs e)
