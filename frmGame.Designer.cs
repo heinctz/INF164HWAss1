@@ -55,13 +55,13 @@ namespace INF164HWAss1
             this.lblSec = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.lblTotalgold = new System.Windows.Forms.Label();
             this.lblGold = new System.Windows.Forms.Label();
-            this.tmrUpdateGame = new System.Windows.Forms.Timer(this.components);
+            this.lblSleepLevel = new System.Windows.Forms.Label();
+            this.lblHungerLevel = new System.Windows.Forms.Label();
             this.lblGameLevel = new System.Windows.Forms.Label();
-            this.tmrNegativeGameLevel = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -304,17 +304,17 @@ namespace INF164HWAss1
             this.newGameToolStripMenuItem.Text = "New game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
-            // gameTimer
-            // 
-            this.gameTimer.Interval = 1000;
-            this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
-            // 
             // backToolStripMenuItem
             // 
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
             this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.backToolStripMenuItem.Text = "Back";
             this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
+            // 
+            // gameTimer
+            // 
+            this.gameTimer.Interval = 1000;
+            this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
             // lblTotalgold
             // 
@@ -335,29 +335,46 @@ namespace INF164HWAss1
             this.lblGold.TabIndex = 25;
             this.lblGold.Text = "0";
             // 
-            // tmrUpdateGame
+            // lblSleepLevel
             // 
-            this.tmrUpdateGame.Interval = 500;
-            this.tmrUpdateGame.Tick += new System.EventHandler(this.tmrUpdateGame_Tick);
+            this.lblSleepLevel.AutoSize = true;
+            this.lblSleepLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblSleepLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSleepLevel.Location = new System.Drawing.Point(276, 58);
+            this.lblSleepLevel.Name = "lblSleepLevel";
+            this.lblSleepLevel.Size = new System.Drawing.Size(37, 13);
+            this.lblSleepLevel.TabIndex = 29;
+            this.lblSleepLevel.Text = "Sleep:";
+            // 
+            // lblHungerLevel
+            // 
+            this.lblHungerLevel.AutoSize = true;
+            this.lblHungerLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblHungerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHungerLevel.Location = new System.Drawing.Point(169, 58);
+            this.lblHungerLevel.Name = "lblHungerLevel";
+            this.lblHungerLevel.Size = new System.Drawing.Size(45, 13);
+            this.lblHungerLevel.TabIndex = 28;
+            this.lblHungerLevel.Text = "Hunger:";
             // 
             // lblGameLevel
             // 
             this.lblGameLevel.AutoSize = true;
-            this.lblGameLevel.Location = new System.Drawing.Point(12, 58);
+            this.lblGameLevel.BackColor = System.Drawing.Color.Transparent;
+            this.lblGameLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameLevel.Location = new System.Drawing.Point(72, 58);
             this.lblGameLevel.Name = "lblGameLevel";
-            this.lblGameLevel.Size = new System.Drawing.Size(41, 13);
-            this.lblGameLevel.TabIndex = 26;
-            this.lblGameLevel.Text = "Game: ";
-            // 
-            // tmrNegativeGameLevel
-            // 
-            this.tmrNegativeGameLevel.Tick += new System.EventHandler(this.tmrNegativeGameLevel_Tick);
+            this.lblGameLevel.Size = new System.Drawing.Size(38, 13);
+            this.lblGameLevel.TabIndex = 27;
+            this.lblGameLevel.Text = "Game:";
             // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(418, 399);
+            this.Controls.Add(this.lblSleepLevel);
+            this.Controls.Add(this.lblHungerLevel);
             this.Controls.Add(this.lblGameLevel);
             this.Controls.Add(this.lblGold);
             this.Controls.Add(this.lblTotalgold);
@@ -427,8 +444,8 @@ namespace INF164HWAss1
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
         private System.Windows.Forms.Label lblTotalgold;
         private System.Windows.Forms.Label lblGold;
-        private System.Windows.Forms.Timer tmrUpdateGame;
+        private System.Windows.Forms.Label lblSleepLevel;
+        private System.Windows.Forms.Label lblHungerLevel;
         private System.Windows.Forms.Label lblGameLevel;
-        private System.Windows.Forms.Timer tmrNegativeGameLevel;
     }
 }

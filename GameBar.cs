@@ -267,7 +267,7 @@ namespace INF164HWAss1
             changeSleepLevelVisibility();
         }
 
-        public GameBar(Tamagotchi tamagotchi, ref Label lblGameLevel, ref Label lblHungerLevel,
+        public GameBar(ref Tamagotchi tamagotchi, ref Label lblGameLevel, ref Label lblHungerLevel,
             ref Label lblSleepLevel)
         {
             this.tamagotchi = tamagotchi;

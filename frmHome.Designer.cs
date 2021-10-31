@@ -179,7 +179,7 @@ namespace INF164HWAss1
             // 
             // tmrUpdateTamagotchiImage
             // 
-            this.tmrUpdateTamagotchiImage.Interval = 1;
+            this.tmrUpdateTamagotchiImage.Interval = 500;
             this.tmrUpdateTamagotchiImage.Tick += new System.EventHandler(this.tmrUpdateTamagotchiImage_Tick);
             // 
             // pbxTamagotchiState
@@ -193,7 +193,7 @@ namespace INF164HWAss1
             // 
             // tmrGameOver
             // 
-            this.tmrGameOver.Interval = 1;
+            this.tmrGameOver.Interval = 500;
             this.tmrGameOver.Tick += new System.EventHandler(this.tmrGameOver_Tick);
             // 
             // tmrIncreaseSleep
@@ -211,6 +211,7 @@ namespace INF164HWAss1
             this.Controls.Add(this.gbxBottom);
             this.Name = "frmHome";
             this.Text = "Tamagotchi Home";
+            this.Shown += new System.EventHandler(this.frmHome_Shown);
             this.gbxTop.ResumeLayout(false);
             this.gbxTop.PerformLayout();
             this.gbxBottom.ResumeLayout(false);

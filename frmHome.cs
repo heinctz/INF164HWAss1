@@ -22,7 +22,7 @@ namespace INF164HWAss1
 
             gold = 100;
             tamagotchi = new Tamagotchi();
-            gameBar = new GameBar(tamagotchi, ref lblGameLevel, ref lblHungerLevel,
+            gameBar = new GameBar(ref tamagotchi, ref lblGameLevel, ref lblHungerLevel,
                 ref lblSleepLevel);
 
             pbxTamagotchiState.Image = imlTamagochiStates.Images[0];
@@ -46,12 +46,20 @@ namespace INF164HWAss1
 
         private void btnGame_Click(object sender, EventArgs e)
         {
-            frmGame Gameform = new frmGame(tamagotchi, gold);
             Hide();
+            gameBar.stopDecrementTimers();
+            tmrUpdateTamagotchiImage.Stop();
+            tmrGameOver.Stop();
+
+            frmGame Gameform = new frmGame(tamagotchi, gold);
             Gameform.ShowDialog();
 
             gold = Gameform.Gold;
             tamagotchi = Gameform.EditedTamagotchi;
+
+            gameBar.startDecrementTimers();
+            tmrUpdateTamagotchiImage.Start();
+            tmrGameOver.Start();
 
             displayGold();
             Show();
@@ -100,7 +108,7 @@ namespace INF164HWAss1
         {
             if ((tamagotchi.GameLevel == 0) && (tamagotchi.HungerLevel == 0) && (tamagotchi.SleepLevel == 0))
             {
-                tmrGameOver.Start();
+                tmrGameOver.Stop();
                 MessageBox.Show("Game over: Your tamagotchi has died");
                 Close();
             }
@@ -153,5 +161,9 @@ namespace INF164HWAss1
             }
         }
 
+        private void frmHome_Shown(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -15,17 +15,16 @@ namespace INF164HWAss1
     {
         private int gold;
         private Tamagotchi tamagotchi;
-        private int gameLevelCounter;
+        private GameBar gamebar;
 
         public frmGame(Tamagotchi tamagotchi, int gold)
         {
             InitializeComponent();
             this.gold = gold;
-            this.tamagotchi = new Tamagotchi(tamagotchi);
+            this.tamagotchi = tamagotchi;
 
-            tmrUpdateGame.Enabled = true;
-            gameLevelCounter = 0;
-
+            gamebar = new GameBar(ref tamagotchi, ref lblGameLevel, ref lblHungerLevel,
+                ref lblSleepLevel);
         }
         public int Gold
         {
@@ -222,11 +221,7 @@ namespace INF164HWAss1
                 if (turn == true)
                 {
                     winner = "O";
-                    tamagotchi.GameLevel += 5;
-                    if (tamagotchi.GameLevel > 100)
-                    {
-                        tamagotchi.GameLevel = 99;
-                    }
+                    gamebar.increaseGameLevel(5);
                     MessageBox.Show(winner + " has won the game!");
                     ComputerCount++;
                     lblLosecount.Text = ComputerCount.ToString();
@@ -234,11 +229,7 @@ namespace INF164HWAss1
                 else
                 {
                     winner = "X";
-                    tamagotchi.GameLevel += 20;
-                    if (tamagotchi.GameLevel > 100)
-                    {
-                        tamagotchi.GameLevel = 99;
-                    }
+                    gamebar.increaseGameLevel(20);
                     MessageBox.Show(winner + " has won the game!" + " You won: " + gameGold.ToString() + " gold for winnning the match.");
                     lblGold.Text = gold.ToString();
                     TamagotchiCount++;
@@ -253,11 +244,7 @@ namespace INF164HWAss1
                     gameTimer.Enabled = false;
                     gameGold = 1;
                     gold += gameGold;
-                    tamagotchi.GameLevel += 10;
-                    if (tamagotchi.GameLevel > 100)
-                    {
-                        tamagotchi.GameLevel = 99;
-                    }
+                    tamagotchi.increaseGameLevel(10);
                     MessageBox.Show("Draw!" + " You won " + gameGold.ToString() + " gold for drawing the match.");
                     gameTimer.Enabled = false;
                     lblGold.Text = gold.ToString();
@@ -372,50 +359,9 @@ namespace INF164HWAss1
 
         private void backToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            gamebar.stopDecrementTimers();
+            gameTimer.Stop();
             Close();
-        }
-
-        private void tmrUpdateGame_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                tamagotchi.decrementGameLevel();
-                displayGameLevels();
-
-                if ((tamagotchi.GameLevel >= 90) && (tamagotchi.GameLevel <= 100))
-                    lblGameLevel.BackColor = Color.Lime;
-                else if ((tamagotchi.GameLevel >= 80) && (tamagotchi.GameLevel <= 89))
-                    lblGameLevel.BackColor = Color.LightGreen;
-                else if ((tamagotchi.GameLevel >= 70) && (tamagotchi.GameLevel <= 79))
-                    lblGameLevel.BackColor = Color.Yellow;
-                else if ((tamagotchi.GameLevel >= 60) && (tamagotchi.GameLevel <= 69))
-                    lblGameLevel.BackColor = Color.Orange;
-                else if ((tamagotchi.GameLevel >= 50) && (tamagotchi.GameLevel <= 59))
-                    lblGameLevel.BackColor = Color.OrangeRed;
-                else
-                    lblGameLevel.BackColor = Color.Red;
-
-                tmrNegativeGameLevel.Enabled = false;
-            }
-
-            catch (NegativeGameLevel)
-            {
-                tmrNegativeGameLevel.Enabled = true;
-            }
-        }
-        private void displayGameLevels()
-        {
-            lblGameLevel.Text = $"Game: {tamagotchi.GameLevel}";
-        }
-
-        private void tmrNegativeGameLevel_Tick(object sender, EventArgs e)
-        {
-            gameLevelCounter++;
-            if (gameLevelCounter % 2 == 0)
-                lblGameLevel.Visible = false;
-            else
-                lblGameLevel.Visible = true;
         }
 
         private Button Look_Corner()
