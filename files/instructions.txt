@@ -1,0 +1,8 @@
+1. Press Play to start
+2. The gold and activiy levels will appear at the top and the activities at the bottom
+3. The activity levels decrease over time
+4. Game, eat and sleep activities increase the activity levels
+4. Coins are earned in the game activity
+5. Coins are spend in the eat activity
+6. Game ends if all activity levels are 0
+7. Good luck!

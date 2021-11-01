@@ -81,6 +81,7 @@ namespace INF164HWAss1
 
         private void btnBackToHome_Click(object sender, EventArgs e)
         {
+            tmrGameOver.Stop();
             gameBar.stopDecrementTimers();
 
             using (StreamWriter outputFile = new StreamWriter(@"..\..\files\items.ser"))
@@ -100,6 +101,8 @@ namespace INF164HWAss1
                 gameBar.stopDecrementTimers();
                 tmrGameOver.Stop();
                 gameOver = true;
+                MessageBox.Show("Tamagotchi has died", "Game Over",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
         }

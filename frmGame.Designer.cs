@@ -427,7 +427,7 @@ namespace INF164HWAss1
             this.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.msOptions;
             this.Name = "frmGame";
-            this.Text = "frmGame";
+            this.Text = "Game";
             this.Shown += new System.EventHandler(this.frmGame_Shown);
             this.msOptions.ResumeLayout(false);
             this.msOptions.PerformLayout();

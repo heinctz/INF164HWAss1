@@ -32,7 +32,7 @@ namespace INF164HWAss1
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
             this.btnGame = new System.Windows.Forms.Button();
-            this.btnFridge = new System.Windows.Forms.Button();
+            this.btnEat = new System.Windows.Forms.Button();
             this.btnSleep = new System.Windows.Forms.Button();
             this.lblGold = new System.Windows.Forms.Label();
             this.gbxTop = new System.Windows.Forms.GroupBox();
@@ -43,9 +43,9 @@ namespace INF164HWAss1
             this.gbxBottom = new System.Windows.Forms.GroupBox();
             this.imlTamagochiStates = new System.Windows.Forms.ImageList(this.components);
             this.tmrUpdateTamagotchiImage = new System.Windows.Forms.Timer(this.components);
-            this.pbxTamagotchiState = new System.Windows.Forms.PictureBox();
             this.tmrGameOver = new System.Windows.Forms.Timer(this.components);
             this.tmrIncreaseSleep = new System.Windows.Forms.Timer(this.components);
+            this.pbxTamagotchiState = new System.Windows.Forms.PictureBox();
             this.gbxTop.SuspendLayout();
             this.gbxBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTamagotchiState)).BeginInit();
@@ -61,15 +61,15 @@ namespace INF164HWAss1
             this.btnGame.UseVisualStyleBackColor = true;
             this.btnGame.Click += new System.EventHandler(this.btnGame_Click);
             // 
-            // btnFridge
+            // btnEat
             // 
-            this.btnFridge.Location = new System.Drawing.Point(212, 19);
-            this.btnFridge.Name = "btnFridge";
-            this.btnFridge.Size = new System.Drawing.Size(71, 40);
-            this.btnFridge.TabIndex = 1;
-            this.btnFridge.Text = "Fridge";
-            this.btnFridge.UseVisualStyleBackColor = true;
-            this.btnFridge.Click += new System.EventHandler(this.btnKitchen_Click);
+            this.btnEat.Location = new System.Drawing.Point(212, 19);
+            this.btnEat.Name = "btnEat";
+            this.btnEat.Size = new System.Drawing.Size(71, 40);
+            this.btnEat.TabIndex = 1;
+            this.btnEat.Text = "Eat";
+            this.btnEat.UseVisualStyleBackColor = true;
+            this.btnEat.Click += new System.EventHandler(this.btnKitchen_Click);
             // 
             // btnSleep
             // 
@@ -156,7 +156,7 @@ namespace INF164HWAss1
             // 
             this.gbxBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.gbxBottom.Controls.Add(this.btnGame);
-            this.gbxBottom.Controls.Add(this.btnFridge);
+            this.gbxBottom.Controls.Add(this.btnEat);
             this.gbxBottom.Controls.Add(this.btnSleep);
             this.gbxBottom.Location = new System.Drawing.Point(0, 394);
             this.gbxBottom.Name = "gbxBottom";
@@ -182,6 +182,16 @@ namespace INF164HWAss1
             this.tmrUpdateTamagotchiImage.Interval = 500;
             this.tmrUpdateTamagotchiImage.Tick += new System.EventHandler(this.tmrUpdateTamagotchiImage_Tick);
             // 
+            // tmrGameOver
+            // 
+            this.tmrGameOver.Interval = 500;
+            this.tmrGameOver.Tick += new System.EventHandler(this.tmrGameOver_Tick);
+            // 
+            // tmrIncreaseSleep
+            // 
+            this.tmrIncreaseSleep.Interval = 500;
+            this.tmrIncreaseSleep.Tick += new System.EventHandler(this.tmrIncreaseSleep_Tick);
+            // 
             // pbxTamagotchiState
             // 
             this.pbxTamagotchiState.Location = new System.Drawing.Point(143, 132);
@@ -191,27 +201,17 @@ namespace INF164HWAss1
             this.pbxTamagotchiState.TabIndex = 6;
             this.pbxTamagotchiState.TabStop = false;
             // 
-            // tmrGameOver
-            // 
-            this.tmrGameOver.Interval = 500;
-            this.tmrGameOver.Tick += new System.EventHandler(this.tmrGameOver_Tick);
-            // 
-            // tmrIncreaseSleep
-            // 
-            this.tmrIncreaseSleep.Interval = 1000;
-            this.tmrIncreaseSleep.Tick += new System.EventHandler(this.tmrIncreaseSleep_Tick);
-            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(530, 474);
             this.Controls.Add(this.pbxTamagotchiState);
             this.Controls.Add(this.gbxTop);
             this.Controls.Add(this.gbxBottom);
             this.Name = "frmHome";
             this.Text = "Home";
-            this.Shown += new System.EventHandler(this.frmHome_Shown);
             this.gbxTop.ResumeLayout(false);
             this.gbxTop.PerformLayout();
             this.gbxBottom.ResumeLayout(false);
@@ -223,7 +223,7 @@ namespace INF164HWAss1
         #endregion
 
         private System.Windows.Forms.Button btnGame;
-        private System.Windows.Forms.Button btnFridge;
+        private System.Windows.Forms.Button btnEat;
         private System.Windows.Forms.Button btnSleep;
         private System.Windows.Forms.Label lblGold;
         private System.Windows.Forms.GroupBox gbxTop;

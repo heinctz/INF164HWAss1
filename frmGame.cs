@@ -247,7 +247,7 @@ namespace INF164HWAss1
                     gameTimer.Enabled = false;
                     gameGold = 1;
                     gold += gameGold;
-                    tamagotchi.increaseGameLevel(10);
+                    gamebar.increaseGameLevel(10);
                     MessageBox.Show("Draw!" + " You won " + gameGold.ToString() + " gold for drawing the match.");
                     gameTimer.Enabled = false;
                     lblGold.Text = gold.ToString();
@@ -364,6 +364,7 @@ namespace INF164HWAss1
         {
             gamebar.stopDecrementTimers();
             gameTimer.Stop();
+            tmrGameOver.Stop();
             Close();
         }
 
@@ -374,7 +375,8 @@ namespace INF164HWAss1
                 gamebar.stopDecrementTimers();
                 tmrGameOver.Stop();
                 gameOver = true;
-                MessageBox.Show("Game over: Your tamagotchi has died");
+                MessageBox.Show("Tamagotchi has died", "Game Over",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
         }

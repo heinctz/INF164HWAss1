@@ -10,11 +10,22 @@ namespace INF164HWAss1
         private int gold;
         private Tamagotchi tamagotchi;
         private GameBar gameBar;
-        private bool isSleeping;
+        private bool sleepStatus;
 
         private void displayGold()
         {
             lblGold.Text = $"Gold: {gold}";
+        }
+
+        private bool isGameOver()
+        {
+            return tamagotchi.GameLevel == 0 && tamagotchi.HungerLevel == 0
+                && tamagotchi.SleepLevel == 0;
+        }
+
+        private bool isSleeping()
+        {
+            return sleepStatus;
         }
 
         public frmHome()
@@ -134,7 +145,7 @@ namespace INF164HWAss1
 
         private void tmrGameOver_Tick(object sender, EventArgs e)
         {
-            if ((tamagotchi.GameLevel == 0) && (tamagotchi.HungerLevel == 0) && (tamagotchi.SleepLevel == 0))
+            if (isGameOver())
             {
                 tmrGameOver.Stop();
                 tmrUpdateTamagotchiImage.Stop();
@@ -151,9 +162,9 @@ namespace INF164HWAss1
         {
             if (tamagotchi.canSleep())
             {
-                if (!isSleeping)
+                if (!isSleeping())
                 {
-                    isSleeping = true;
+                    sleepStatus = true;
                     gameBar.stopDecrementTimers();
                     tmrUpdateTamagotchiImage.Stop();
                     tmrGameOver.Stop();
@@ -174,7 +185,7 @@ namespace INF164HWAss1
 
                     if (stopSleeping == DialogResult.Yes)
                     {
-                        isSleeping = false;
+                        sleepStatus = false;
                         gameBar.startDecrementTimers();
                         tmrUpdateTamagotchiImage.Start();
                         tmrGameOver.Start();
@@ -228,11 +239,6 @@ namespace INF164HWAss1
                     tmrIncreaseSleep.Stop();
                 }
             }
-        }
-
-        private void frmHome_Shown(object sender, EventArgs e)
-        {
-
         }
     }
 }
