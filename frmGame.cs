@@ -362,7 +362,7 @@ namespace INF164HWAss1
 
         private void backToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gamebar.stopAllTimers();
+            gamebar.stopDecrementTimers();
             gameTimer.Stop();
             Close();
         }

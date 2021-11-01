@@ -168,7 +168,7 @@ namespace INF164HWAss1
 
         private void btnKitchen_Back_Click(object sender, EventArgs e)
         {
-            gameBar.stopAllTimers();
+            gameBar.stopDecrementTimers();
             Close();
         }
 

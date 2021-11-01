@@ -354,23 +354,17 @@ namespace INF164HWAss1
             }
         }
 
-        public void stopAllTimers()
+        public void stopDecrementTimers()
         {
             tmrDecrementGameLevel.Stop();
             tmrDecrementHungerLevel.Stop();
             tmrDecrementSleepLevel.Stop();
-            tmrFlashGameLevel.Stop();
-            tmrFlashHungerLevel.Stop();
-            tmrFlashSleepLevel.Stop();
         }
-        public void startAllTimers()
+        public void startDecrementTimers()
         {
             tmrDecrementGameLevel.Start();
             tmrDecrementHungerLevel.Start();
             tmrDecrementSleepLevel.Start();
-            tmrFlashGameLevel.Start();
-            tmrFlashHungerLevel.Start();
-            tmrFlashSleepLevel.Start();
         }
 
     }
