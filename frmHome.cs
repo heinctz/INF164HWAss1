@@ -10,6 +10,7 @@ namespace INF164HWAss1
         private int gold;
         private Tamagotchi tamagotchi;
         private GameBar gameBar;
+        private bool isSleeping;
 
         private void displayGold()
         {
@@ -46,57 +47,62 @@ namespace INF164HWAss1
 
         private void btnGame_Click(object sender, EventArgs e)
         {
-            Hide();
-            gameBar.stopDecrementTimers();
-            tmrUpdateTamagotchiImage.Stop();
-            tmrGameOver.Stop();
-
-            frmGame gameForm = new frmGame(tamagotchi, gold);
-            gameForm.ShowDialog();
-
-            if (gameForm.GameOver)
-                Close();
-            else
+            if(tamagotchi.canPlayGame())
             {
-                gold = gameForm.Gold;
-                tamagotchi = gameForm.EditedTamagotchi;
+                Hide();
+                gameBar.stopDecrementTimers();
+                tmrUpdateTamagotchiImage.Stop();
+                tmrGameOver.Stop();
 
-                gameBar.displayGameBar();
-                displayGold();
-                Show();
+                frmGame gameForm = new frmGame(tamagotchi, gold);
+                gameForm.ShowDialog();
 
-                gameBar.startDecrementTimers();
-                tmrUpdateTamagotchiImage.Start();
-                tmrGameOver.Start();
+                if (gameForm.GameOver)
+                    Close();
+                else
+                {
+                    gold = gameForm.Gold;
+                    tamagotchi = gameForm.EditedTamagotchi;
+
+                    gameBar.displayGameBar();
+                    displayGold();
+                    Show();
+
+                    gameBar.startDecrementTimers();
+                    tmrUpdateTamagotchiImage.Start();
+                    tmrGameOver.Start();
+                }
             }
         }
 
         private void btnKitchen_Click(object sender, EventArgs e)
         {
-            Hide();
-            gameBar.stopDecrementTimers();
-            tmrUpdateTamagotchiImage.Stop();
-            tmrGameOver.Stop();
-
-            frmKitchen kitchenForm = new frmKitchen(tamagotchi,gold);
-            kitchenForm.ShowDialog();
-
-            gold = kitchenForm.Gold;
-            tamagotchi = kitchenForm.EditedTamagotchi;
-
-            if (kitchenForm.GameOver)
-                Close();
-            else
+            if (tamagotchi.canEat())
             {
-                gameBar.displayGameBar();
-                displayGold();
-                Show();
+                Hide();
+                gameBar.stopDecrementTimers();
+                tmrUpdateTamagotchiImage.Stop();
+                tmrGameOver.Stop();
 
-                gameBar.startDecrementTimers();
-                tmrUpdateTamagotchiImage.Start();
-                tmrGameOver.Start();
+                frmKitchen kitchenForm = new frmKitchen(tamagotchi,gold);
+                kitchenForm.ShowDialog();
+
+                gold = kitchenForm.Gold;
+                tamagotchi = kitchenForm.EditedTamagotchi;
+
+                if (kitchenForm.GameOver)
+                    Close();
+                else
+                {
+                    gameBar.displayGameBar();
+                    displayGold();
+                    Show();
+
+                    gameBar.startDecrementTimers();
+                    tmrUpdateTamagotchiImage.Start();
+                    tmrGameOver.Start();
+                }
             }
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -131,22 +137,62 @@ namespace INF164HWAss1
             if ((tamagotchi.GameLevel == 0) && (tamagotchi.HungerLevel == 0) && (tamagotchi.SleepLevel == 0))
             {
                 tmrGameOver.Stop();
-                MessageBox.Show("Game over: Your tamagotchi has died");
+                tmrUpdateTamagotchiImage.Stop();
+
+                pbxTamagotchiState.Image = Image.FromFile(@"..\..\images\dead.jpg");
+
+                MessageBox.Show("Tamagotchi has died", "Game Over",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
         }
 
         private void btnSleep_Click(object sender, EventArgs e)
         {
-            gameBar.stopDecrementTimers();
-            tmrUpdateTamagotchiImage.Stop();
-            tmrGameOver.Stop();
+            if (tamagotchi.canSleep())
+            {
+                if (!isSleeping)
+                {
+                    isSleeping = true;
+                    gameBar.stopDecrementTimers();
+                    tmrUpdateTamagotchiImage.Stop();
+                    tmrGameOver.Stop();
 
-            pbxTamagotchiState.Image = Image.FromFile(@"..\..\images\sleep.jpg");
-            tmrIncreaseSleep.Start();
+                    pbxTamagotchiState.Image = Image.FromFile(@"..\..\images\sleep.jpg");
+                    tmrIncreaseSleep.Start();
 
-            btnSleep.Text = "Sleeping";
-            btnSleep.Width = 100;
+                    btnSleep.Text = "Wake him up";
+                    btnSleep.Width = 100;
+                }
+                else
+                {
+                    tmrIncreaseSleep.Stop();
+
+                    DialogResult stopSleeping;
+                    stopSleeping = MessageBox.Show("Are you sure you want the tamagotchi to wake up?",
+                        "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (stopSleeping == DialogResult.Yes)
+                    {
+                        isSleeping = false;
+                        gameBar.startDecrementTimers();
+                        tmrUpdateTamagotchiImage.Start();
+                        tmrGameOver.Start();
+
+                        MessageBox.Show("Tamagotchi is awake", "Notification", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnSleep.Text = "Sleep";
+                        btnSleep.Width = 64;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tamagotchi is still sleeping", "Notification", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tmrIncreaseSleep.Start();
+                    }
+
+                }
+            }
         }
 
         private void tmrIncreaseSleep_Tick(object sender, EventArgs e)
@@ -162,23 +208,24 @@ namespace INF164HWAss1
                 DialogResult stopSleeping;
 
                 stopSleeping = MessageBox.Show("Tamagotchi sleep Levels are full. Do you want him to stop sleeping?",
-                    "Notification", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (stopSleeping == DialogResult.Yes)
                 {
-                    MessageBox.Show("Tamagotchi is awake!");
-                    btnSleep.Text = "Sleep";
-                    btnSleep.Width = 64;
-
                     gameBar.startDecrementTimers();
                     tmrUpdateTamagotchiImage.Start();
                     tmrGameOver.Start();
+
+                    MessageBox.Show("Tamagotchi is awake", "Notification", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnSleep.Text = "Sleep";
+                    btnSleep.Width = 64;
                 }
                 else
                 {
-                    MessageBox.Show("Tamagotch is still sleeping!");
-                    btnSleep.Text = "Wake tamagotchi up";
-                    btnSleep.Width = 140;
+                    MessageBox.Show("Tamagotchi is still sleeping", "Notification", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tmrIncreaseSleep.Stop();
                 }
             }
         }

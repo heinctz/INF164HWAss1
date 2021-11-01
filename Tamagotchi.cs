@@ -179,13 +179,13 @@ namespace INF164HWAss1
         {
             if (gameLevel == 0)
             {
-                MessageBox.Show(@"Tamagotchi can't eat he needs to play a game", "Error",
+                MessageBox.Show(@"Tamagotchi can't sleep he needs to play a game", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else if (hungerLevel == 0)
             {
-                MessageBox.Show(@"Tamagotchi can't play he is starving", "Error",
+                MessageBox.Show(@"Tamagotchi can't sleep he is starving", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }

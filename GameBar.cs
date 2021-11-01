@@ -279,7 +279,7 @@ namespace INF164HWAss1
             displayGameBar();
 
             tmrDecrementGameLevel = new System.Timers.Timer(200);
-            tmrDecrementHungerLevel = new System.Timers.Timer(200);
+            tmrDecrementHungerLevel = new System.Timers.Timer(300);
             tmrDecrementSleepLevel = new System.Timers.Timer(400);
 
             tmrFlashGameLevel = new System.Timers.Timer(400);
