@@ -32,7 +32,7 @@ namespace INF164HWAss1
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
             this.btnGame = new System.Windows.Forms.Button();
-            this.btnKitchen = new System.Windows.Forms.Button();
+            this.btnFridge = new System.Windows.Forms.Button();
             this.btnSleep = new System.Windows.Forms.Button();
             this.lblGold = new System.Windows.Forms.Label();
             this.gbxTop = new System.Windows.Forms.GroupBox();
@@ -61,15 +61,15 @@ namespace INF164HWAss1
             this.btnGame.UseVisualStyleBackColor = true;
             this.btnGame.Click += new System.EventHandler(this.btnGame_Click);
             // 
-            // btnKitchen
+            // btnFridge
             // 
-            this.btnKitchen.Location = new System.Drawing.Point(212, 19);
-            this.btnKitchen.Name = "btnKitchen";
-            this.btnKitchen.Size = new System.Drawing.Size(71, 40);
-            this.btnKitchen.TabIndex = 1;
-            this.btnKitchen.Text = "Kitchen";
-            this.btnKitchen.UseVisualStyleBackColor = true;
-            this.btnKitchen.Click += new System.EventHandler(this.btnKitchen_Click);
+            this.btnFridge.Location = new System.Drawing.Point(212, 19);
+            this.btnFridge.Name = "btnFridge";
+            this.btnFridge.Size = new System.Drawing.Size(71, 40);
+            this.btnFridge.TabIndex = 1;
+            this.btnFridge.Text = "Fridge";
+            this.btnFridge.UseVisualStyleBackColor = true;
+            this.btnFridge.Click += new System.EventHandler(this.btnKitchen_Click);
             // 
             // btnSleep
             // 
@@ -156,7 +156,7 @@ namespace INF164HWAss1
             // 
             this.gbxBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.gbxBottom.Controls.Add(this.btnGame);
-            this.gbxBottom.Controls.Add(this.btnKitchen);
+            this.gbxBottom.Controls.Add(this.btnFridge);
             this.gbxBottom.Controls.Add(this.btnSleep);
             this.gbxBottom.Location = new System.Drawing.Point(0, 394);
             this.gbxBottom.Name = "gbxBottom";
@@ -223,7 +223,7 @@ namespace INF164HWAss1
         #endregion
 
         private System.Windows.Forms.Button btnGame;
-        private System.Windows.Forms.Button btnKitchen;
+        private System.Windows.Forms.Button btnFridge;
         private System.Windows.Forms.Button btnSleep;
         private System.Windows.Forms.Label lblGold;
         private System.Windows.Forms.GroupBox gbxTop;

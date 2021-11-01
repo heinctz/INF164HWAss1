@@ -371,6 +371,7 @@ namespace INF164HWAss1
         {
             if ((tamagotchi.GameLevel == 0) && (tamagotchi.HungerLevel == 0) && (tamagotchi.SleepLevel == 0))
             {
+                gamebar.stopDecrementTimers();
                 tmrGameOver.Stop();
                 gameOver = true;
                 MessageBox.Show("Game over: Your tamagotchi has died");

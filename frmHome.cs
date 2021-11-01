@@ -84,7 +84,7 @@ namespace INF164HWAss1
                 tmrUpdateTamagotchiImage.Stop();
                 tmrGameOver.Stop();
 
-                frmKitchen kitchenForm = new frmKitchen(tamagotchi,gold);
+                frmFridge kitchenForm = new frmFridge(tamagotchi,gold);
                 kitchenForm.ShowDialog();
 
                 gold = kitchenForm.Gold;

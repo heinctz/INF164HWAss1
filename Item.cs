@@ -2,20 +2,20 @@
 
 namespace INF164HWAss1
 {
-    public class Food
+    [Serializable]
+    public class Item
     {
         private string name;
         private string category;
         private DateTime purchaseDate;
-        private double cost;
+        private int goldCost;
 
-        public Food(string name, string category, DateTime purchaseDate,
-            DateTime expireDate, double cost)
+        public Item(string name, string category, DateTime purchaseDate, int goldCost)
         {
             this.name = name;
             this.category = category;
             this.purchaseDate = purchaseDate;
-            this.cost = cost;
+            this.goldCost = goldCost;
         }
 
         public string Name
@@ -27,7 +27,7 @@ namespace INF164HWAss1
         public string Category
         {
             get { return category; }
-            set { name = value; }
+            set { category = value; }
         }
 
         public DateTime PurchaseDate
@@ -36,10 +36,10 @@ namespace INF164HWAss1
             set { purchaseDate = value; }
         }
 
-        public double Cost
+        public int GoldCost
         {
-            get { return cost; }
-            set { cost = value;  }
+            get { return goldCost; }
+            set { goldCost = value;  }
         }
     }
 }

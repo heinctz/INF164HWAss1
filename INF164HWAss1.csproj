@@ -52,7 +52,13 @@
     <Compile Include="ExceptionHandling\NegativeGameLevel.cs" />
     <Compile Include="ExceptionHandling\NegativeHungerLevel.cs" />
     <Compile Include="ExceptionHandling\NegativeSleepLevel.cs" />
-    <Compile Include="Food.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="frmEditItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditItem.Designer.cs">
+      <DependentUpon>frmEditItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,11 +71,11 @@
     <Compile Include="frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmKitchen.cs">
+    <Compile Include="frmFridge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmKitchen.Designer.cs">
-      <DependentUpon>frmKitchen.cs</DependentUpon>
+    <Compile Include="frmFridge.Designer.cs">
+      <DependentUpon>frmFridge.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
@@ -81,14 +87,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tamagotchi.cs" />
+    <EmbeddedResource Include="frmEditItem.resx">
+      <DependentUpon>frmEditItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGame.resx">
       <DependentUpon>frmGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmKitchen.resx">
-      <DependentUpon>frmKitchen.cs</DependentUpon>
+    <EmbeddedResource Include="frmFridge.resx">
+      <DependentUpon>frmFridge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>

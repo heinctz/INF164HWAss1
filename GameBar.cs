@@ -278,9 +278,9 @@ namespace INF164HWAss1
 
             displayGameBar();
 
-            tmrDecrementGameLevel = new System.Timers.Timer(200);
-            tmrDecrementHungerLevel = new System.Timers.Timer(300);
-            tmrDecrementSleepLevel = new System.Timers.Timer(400);
+            tmrDecrementGameLevel = new System.Timers.Timer(2000);
+            tmrDecrementHungerLevel = new System.Timers.Timer(3000);
+            tmrDecrementSleepLevel = new System.Timers.Timer(4000);
 
             tmrFlashGameLevel = new System.Timers.Timer(400);
             tmrFlashHungerLevel = new System.Timers.Timer(400);
@@ -318,10 +318,9 @@ namespace INF164HWAss1
                 displayGameLevel();
             }
 
-            catch (AboveMaxGameLevel maxGameLevel)
+            catch (AboveMaxGameLevel)
             {
-                MessageBox.Show(maxGameLevel.Message, "Information", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                increaseGameLevel(100 - tamagotchi.GameLevel);
             }
         }
 
@@ -333,10 +332,9 @@ namespace INF164HWAss1
                 displayHungerLevel();
             }
 
-            catch (AboveMaxHungerLevel maxHungerLevel)
+            catch (AboveMaxHungerLevel)
             {
-                MessageBox.Show(maxHungerLevel.Message, "Information", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                increaseHungerLevel(100 - tamagotchi.HungerLevel);
             }
         }
 
