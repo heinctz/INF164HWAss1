@@ -1,55 +1,46 @@
-﻿using System.Windows.Forms;
-using System;
+﻿using System;
+
 namespace INF164HWAss1
 {
     public class Food
     {
-        private string sName;
-        private string Category;
-        private DateTime Purchased;
-        private DateTime Expire;
-        private double dCost;
+        private string name;
+        private string category;
+        private DateTime purchaseDate;
+        private double cost;
 
-        public Food()
+        public Food(string name, string category, DateTime purchaseDate,
+            DateTime expireDate, double cost)
         {
-            sName = "";
-            Category  = "";
-            Purchased = new DateTime(2021, 1, 1);
-            Expire    = new DateTime(2021, 12, 31);
-            dCost      = 0.0;
-        }
-
-        public Food(string Name, string Category, DateTime Purchased, DateTime Expire, double Cost)
-        {
-            this.sName     = Name;
-            this.Category  = Category;
-            this.Purchased = Purchased;
-            this.Expire    = Expire;
-            this.dCost      = Cost;
+            this.name = name;
+            this.category = category;
+            this.purchaseDate = purchaseDate;
+            this.cost = cost;
         }
 
         public string Name
         {
-            get { return sName;}
+            get { return name; }
+            set { name = value; }
         }
 
-        public string category
+        public string Category
         {
-            get {return Category;}
+            get { return category; }
+            set { name = value; }
         }
 
-        public DateTime expire
+        public DateTime PurchaseDate
         {
-            get { return Expire; }
+            get { return purchaseDate; }
+            set { purchaseDate = value; }
         }
 
-        public DateTime purchased
-        {
-            get { return Purchased; }
-        }
         public double Cost
         {
-            get { return dCost;}
+            get { return cost; }
+            set { cost = value;  }
         }
     }
 }
+
