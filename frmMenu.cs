@@ -31,5 +31,11 @@ namespace INF164HWAss1
 
             Show();
         }
+
+        private void btnInstructions_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Instructions to be added in the future...", "Notification",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

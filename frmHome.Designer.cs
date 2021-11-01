@@ -210,7 +210,7 @@ namespace INF164HWAss1
             this.Controls.Add(this.gbxTop);
             this.Controls.Add(this.gbxBottom);
             this.Name = "frmHome";
-            this.Text = "Tamagotchi Home";
+            this.Text = "Home";
             this.Shown += new System.EventHandler(this.frmHome_Shown);
             this.gbxTop.ResumeLayout(false);
             this.gbxTop.PerformLayout();
