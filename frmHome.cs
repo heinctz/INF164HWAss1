@@ -47,29 +47,34 @@ namespace INF164HWAss1
         private void btnGame_Click(object sender, EventArgs e)
         {
             Hide();
-            gameBar.stopDecrementTimers();
+            gameBar.stopAllTimers();
             tmrUpdateTamagotchiImage.Stop();
             tmrGameOver.Stop();
 
-            frmGame Gameform = new frmGame(tamagotchi, gold);
-            Gameform.ShowDialog();
+            frmGame gameForm = new frmGame(tamagotchi, gold);
+            gameForm.ShowDialog();
 
-            gold = Gameform.Gold;
-            tamagotchi = Gameform.EditedTamagotchi;
+            if (gameForm.GameOver)
+                Close();
+            else
+            {
+                gold = gameForm.Gold;
+                tamagotchi = gameForm.EditedTamagotchi;
 
-            gameBar.displayGameBar();
-            displayGold();
-            Show();
+                gameBar.displayGameBar();
+                displayGold();
+                Show();
 
-            gameBar.startDecrementTimers();
-            tmrUpdateTamagotchiImage.Start();
-            tmrGameOver.Start();
+                gameBar.startAllTimers();
+                tmrUpdateTamagotchiImage.Start();
+                tmrGameOver.Start();
+            }
         }
 
         private void btnKitchen_Click(object sender, EventArgs e)
         {
             Hide();
-            gameBar.stopDecrementTimers();
+            gameBar.stopAllTimers();
             tmrUpdateTamagotchiImage.Stop();
             tmrGameOver.Stop();
 
@@ -79,13 +84,19 @@ namespace INF164HWAss1
             gold = kitchenForm.Gold;
             tamagotchi = kitchenForm.EditedTamagotchi;
 
-            gameBar.displayGameBar();
-            displayGold();
-            Show();
+            if (kitchenForm.GameOver)
+                Close();
+            else
+            {
+                gameBar.displayGameBar();
+                displayGold();
+                Show();
 
-            gameBar.startDecrementTimers();
-            tmrUpdateTamagotchiImage.Start();
-            tmrGameOver.Start();
+                gameBar.startAllTimers();
+                tmrUpdateTamagotchiImage.Start();
+                tmrGameOver.Start();
+            }
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -127,7 +138,7 @@ namespace INF164HWAss1
 
         private void btnSleep_Click(object sender, EventArgs e)
         {
-            gameBar.stopDecrementTimers();
+            gameBar.stopAllTimers();
             tmrUpdateTamagotchiImage.Stop();
             tmrGameOver.Stop();
 
@@ -159,7 +170,7 @@ namespace INF164HWAss1
                     btnSleep.Text = "Sleep";
                     btnSleep.Width = 64;
 
-                    gameBar.startDecrementTimers();
+                    gameBar.startAllTimers();
                     tmrUpdateTamagotchiImage.Start();
                     tmrGameOver.Start();
                 }

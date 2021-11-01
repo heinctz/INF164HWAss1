@@ -29,6 +29,7 @@ namespace INF164HWAss1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbxKitchen = new System.Windows.Forms.GroupBox();
             this.btnKitchen_Back = new System.Windows.Forms.Button();
             this.lblCategory = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@ namespace INF164HWAss1
             this.lblSleepLevel = new System.Windows.Forms.Label();
             this.lblHungerLevel = new System.Windows.Forms.Label();
             this.lblGameLevel = new System.Windows.Forms.Label();
+            this.tmrGameOver = new System.Windows.Forms.Timer(this.components);
             this.gbxKitchen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFridge)).BeginInit();
             this.SuspendLayout();
@@ -184,6 +186,11 @@ namespace INF164HWAss1
             this.lblGameLevel.TabIndex = 7;
             this.lblGameLevel.Text = "Game:";
             // 
+            // tmrGameOver
+            // 
+            this.tmrGameOver.Interval = 500;
+            this.tmrGameOver.Tick += new System.EventHandler(this.tmrGameOver_Tick);
+            // 
             // frmKitchen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,5 +226,6 @@ namespace INF164HWAss1
         private System.Windows.Forms.Label lblSleepLevel;
         private System.Windows.Forms.Label lblHungerLevel;
         private System.Windows.Forms.Label lblGameLevel;
+        private System.Windows.Forms.Timer tmrGameOver;
     }
 }

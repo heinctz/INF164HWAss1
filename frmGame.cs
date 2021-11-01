@@ -10,6 +10,7 @@ namespace INF164HWAss1
         private int gold;
         private Tamagotchi tamagotchi;
         private GameBar gamebar;
+        private bool gameOver;
 
         public frmGame(Tamagotchi tamagotchi, int gold)
         {
@@ -19,14 +20,22 @@ namespace INF164HWAss1
 
             gamebar = new GameBar(ref tamagotchi, ref lblGameLevel, ref lblHungerLevel,
                 ref lblSleepLevel);
+            gameOver = false;
+            tmrGameOver.Start();
         }
         public int Gold
         {
             get { return gold; }
         }
+
         public Tamagotchi EditedTamagotchi
         {
             get { return tamagotchi; }
+        }
+
+        public bool GameOver
+        {
+            get { return gameOver; }
         }
 
         bool turn = true;
@@ -353,9 +362,20 @@ namespace INF164HWAss1
 
         private void backToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gamebar.stopDecrementTimers();
+            gamebar.stopAllTimers();
             gameTimer.Stop();
             Close();
+        }
+
+        private void tmrGameOver_Tick(object sender, EventArgs e)
+        {
+            if ((tamagotchi.GameLevel == 0) && (tamagotchi.HungerLevel == 0) && (tamagotchi.SleepLevel == 0))
+            {
+                tmrGameOver.Stop();
+                gameOver = true;
+                MessageBox.Show("Game over: Your tamagotchi has died");
+                Close();
+            }
         }
 
         private Button Look_Corner()

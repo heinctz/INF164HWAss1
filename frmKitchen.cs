@@ -9,6 +9,7 @@ namespace INF164HWAss1
         private int gold;
         private Tamagotchi tamagotchi;
         private GameBar gameBar;
+        private bool gameOver;
 
         public frmKitchen(Tamagotchi tamagotchi, int gold)
         {
@@ -17,6 +18,9 @@ namespace INF164HWAss1
             this.tamagotchi = tamagotchi;
             gameBar = new GameBar(ref tamagotchi, ref lblGameLevel, ref lblHungerLevel,
                 ref lblSleepLevel);
+
+            gameOver = false;
+            tmrGameOver.Start();
         }
         public int Gold
         {
@@ -27,6 +31,12 @@ namespace INF164HWAss1
         {
             get { return tamagotchi; }
         }
+
+        public bool GameOver
+        {
+            get { return gameOver; }
+        }
+
         BindingList<Food> myfoods = new BindingList<Food>();
         private void frmKitchen_Load(object sender, EventArgs e)
         {
@@ -158,7 +168,7 @@ namespace INF164HWAss1
 
         private void btnKitchen_Back_Click(object sender, EventArgs e)
         {
-            gameBar.stopDecrementTimers();
+            gameBar.stopAllTimers();
             Close();
         }
 
@@ -178,6 +188,17 @@ namespace INF164HWAss1
                 }
             }
             MessageBox.Show("There are " + Convert.ToString(iNumber_expired) + " items expired in the fridge.");
+        }
+
+        private void tmrGameOver_Tick(object sender, EventArgs e)
+        {
+            if ((tamagotchi.GameLevel == 0) && (tamagotchi.HungerLevel == 0) && (tamagotchi.SleepLevel == 0))
+            {
+                tmrGameOver.Stop();
+                gameOver = true;
+                MessageBox.Show("Game over: Your tamagotchi has died");
+                Close();
+            }
         }
     }
 }

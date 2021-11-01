@@ -278,9 +278,9 @@ namespace INF164HWAss1
 
             displayGameBar();
 
-            tmrDecrementGameLevel = new System.Timers.Timer(2000);
-            tmrDecrementHungerLevel = new System.Timers.Timer(2000);
-            tmrDecrementSleepLevel = new System.Timers.Timer(4000);
+            tmrDecrementGameLevel = new System.Timers.Timer(200);
+            tmrDecrementHungerLevel = new System.Timers.Timer(200);
+            tmrDecrementSleepLevel = new System.Timers.Timer(400);
 
             tmrFlashGameLevel = new System.Timers.Timer(400);
             tmrFlashHungerLevel = new System.Timers.Timer(400);
@@ -354,17 +354,23 @@ namespace INF164HWAss1
             }
         }
 
-        public void stopDecrementTimers()
+        public void stopAllTimers()
         {
             tmrDecrementGameLevel.Stop();
             tmrDecrementHungerLevel.Stop();
             tmrDecrementSleepLevel.Stop();
+            tmrFlashGameLevel.Stop();
+            tmrFlashHungerLevel.Stop();
+            tmrFlashSleepLevel.Stop();
         }
-        public void startDecrementTimers()
+        public void startAllTimers()
         {
             tmrDecrementGameLevel.Start();
             tmrDecrementHungerLevel.Start();
             tmrDecrementSleepLevel.Start();
+            tmrFlashGameLevel.Start();
+            tmrFlashHungerLevel.Start();
+            tmrFlashSleepLevel.Start();
         }
 
     }
