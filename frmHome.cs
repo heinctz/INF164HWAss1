@@ -180,7 +180,7 @@ namespace INF164HWAss1
                     tmrIncreaseSleep.Stop();
 
                     DialogResult stopSleeping;
-                    stopSleeping = MessageBox.Show("Are you sure you want the tamagotchi to wake up?",
+                    stopSleeping = MessageBox.Show("Are you sure you want to wake up the tamagotchi?",
                         "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (stopSleeping == DialogResult.Yes)
